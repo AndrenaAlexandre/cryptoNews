@@ -124,7 +124,7 @@ h6{
   }
   
   /* Style the links inside the navigation bar */
-  .navbar a {
+.navbar a {
     float: left;
     display: block;
     color: #1513715d;
@@ -135,15 +135,22 @@ h6{
   }
   
   /* Change the color of links on hover */
-  .navbar a:hover {
+.navbar a:hover {
     background-color: #1513715d;
     color: black;
   }
   
   /* Add a color to the active/current link */
-  .navbar a.active {
+.navbar a.active {
     /* background-color: #ffc700; */
     color: #ffc700;
     font-weight:bold;
-
+  }
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+.sticky + .content {
+    padding-top: 60px;
   }
