@@ -1,0 +1,88 @@
+html, body{
+    font-family: 'Calibri';
+}
+.bg{
+    background-image: url("/images/finalbg.jpeg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.newsScroll{
+    font-family: Calibri;
+    font-weight: bold;
+}
+/* header{
+    background-image: url("/images/finalbg.jpg");
+} */
+.yellowtxt{
+    color: #FFC700;
+}
+.pinkishtxt{
+    color: #FA29F8;
+}
+.blueishbox{
+background-color: #1513715d;
+}
+.yellowbox{
+    background-color: #FFC700;
+}
+.ticker{
+    height: 100px;  
+    overflow: hidden;
+    position: relative;
+    background: rgb(0, 0, 0);
+    color: #FFC700;
+    border-top: 1px solid #FFC700;
+    border-bottom: 1px solid #FFC700;
+}
+.ticker p {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+ /* Starting position */
+    transform:translateX(100%);
+ /* Apply animation to this element */
+    animation: scroll-left 20s linear infinite;
+}
+/* Move it (define the animation) */
+@keyframes scroll-left {
+    0%   {
+        transform: translateX(100%);        
+    }
+    100% {
+        transform: translateX(-100%); 
+    }
+}
+.firstRow{
+    border: solid 3px white;
+    display: flex;
+    margin-left: 6%;
+    margin-right: 6%;
+    height: 20%;
+    margin-bottom: 3%;
+}
+.secondRow{
+    border: solid 3px white;
+    margin-left: 15%;
+    margin-right: 15%;
+    height: 20%;
+    margin-bottom: 3%;
+    background-color: #1513715d;
+}
+.thirdRow{
+    border: solid 3px white;
+    margin-left: 15%;
+    margin-right: 15%;
+    height: 20%;
+    margin-bottom: 3%;
+    background-color: #1513715d;
+}
+h3{
+    color: #FFC700;
+    font-size: 24px;
+    text-shadow: 2px 2px #000000;
+}
