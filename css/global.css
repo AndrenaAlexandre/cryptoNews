@@ -1,1 +1,149 @@
 /* this is going to be where we keep our global css */
+html, body{
+    font-family: 'Calibri';
+}
+.bg{
+    background-image: url("/images/finalbg.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.newsScroll{
+    font-family: Calibri;
+    font-weight: bold;
+}
+
+/* header{
+    background-image: url("/images/finalbg.jpg");
+} */
+
+.yellowtxt{
+    color: #ffc700;
+}
+
+.pinkishtxt{
+    color: #fa29f8;
+}
+
+.blueishbox{
+background-color: #1513715d;
+}
+
+.yellowbox{
+    background-color: #ffc700;
+}
+
+
+.ticker{
+    height: 100px;	
+    overflow: hidden;
+    position: relative;
+    background: rgb(0, 0, 0);
+    color: #ffc700;
+    border-top: 1px solid #ffc700;
+    border-bottom: 1px solid #ffc700;
+}
+.ticker p {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+ /* Starting position */
+    transform:translateX(100%);
+ /* Apply animation to this element */
+    animation: scroll-left 20s linear infinite;
+}
+/* Move it (define the animation) */
+@keyframes scroll-left {
+    0%   {
+        transform: translateX(100%); 		
+    }
+    100% {
+        transform: translateX(-100%); 
+    }
+}
+.blankRow{
+    
+    height: 10%;
+    margin-bottom: 3%;
+}
+
+.firstRow{
+    display: flex;
+    margin-left: 17%;
+    margin-right: 10%;
+    height: 20%;
+    margin-bottom: 3%;
+    
+}
+
+.secondRow{
+    border: solid 2px #fa29f68a;
+    margin-left: 15%;
+    margin-right: 15%;
+    height: 20%;
+    margin-bottom: 3%;
+    background-color: #1513715d;
+    border-radius: 10px;
+}
+
+.thirdRow{
+    border: solid 2px #fa29f68a;
+    margin-left: 15%;
+    margin-right: 15%;
+    height: 20%;
+    margin-bottom: 3%;
+    background-color: #1513715d;
+    border-radius: 10px;
+}
+
+h3{
+    color: #ffc700;
+    font-size: 24px;
+    text-shadow: 2px 2px #000000;
+}
+
+h6{
+    color:white;
+    font-size: 12px;
+    text-shadow: 2px 2px black;
+    margin-top: 0;
+}
+
+/* Place the navbar at the bottom of the page, and make it stick */
+.navbar {
+    background-color: rgba(255, 235, 205, 0.219);
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .navbar a {
+    float: left;
+    display: block;
+    color: #1513715d;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .navbar a:hover {
+    background-color: #1513715d;
+    color: black;
+  }
+  
+  /* Add a color to the active/current link */
+  .navbar a.active {
+    /* background-color: #ffc700; */
+    color: #ffc700;
+    font-weight:bold;
+
+  }
