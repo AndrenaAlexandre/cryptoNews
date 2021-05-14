@@ -10,6 +10,7 @@ html, body{
     background-size: cover;
 }
 
+
 .newsScroll{
     font-family: Calibri;
     font-weight: bold;
@@ -78,6 +79,7 @@ background-color: #1513715d;
     margin-right: 10%;
     height: 20%;
     margin-bottom: 3%;
+    overflow: wrap;
     
 }
 
@@ -89,6 +91,7 @@ background-color: #1513715d;
     margin-bottom: 3%;
     background-color: #1513715d;
     border-radius: 10px;
+    overflow-wrap: normal;
 }
 
 .thirdRow{
@@ -127,7 +130,8 @@ h6{
 .navbar a {
     float: left;
     display: block;
-    color: #1513715d;
+    color: #ffc700;
+    font-weight: bold;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -137,7 +141,7 @@ h6{
   /* Change the color of links on hover */
 .navbar a:hover {
     background-color: #1513715d;
-    color: black;
+    color: #fa29f68a;
   }
   
   /* Add a color to the active/current link */
@@ -145,6 +149,11 @@ h6{
     /* background-color: #ffc700; */
     color: #ffc700;
     font-weight:bold;
+  }
+
+  .navbar a.active:hover {
+    background-color: #1513715d;
+    color: #fa29f68a;
   }
 .sticky {
     position: fixed;
@@ -154,3 +163,34 @@ h6{
 .sticky + .content {
     padding-top: 60px;
   }
+
+.footer{
+    height: 5%;
+    background-color: #1513715d;
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding-right: 5px;
+    font-size: 17px;
+
+}
+
+.footer a{
+
+}
+.parallax{
+    background-image: url("/images/parrallax.jpg");
+    height: 100%;
+    background-attachment: fixed;   
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.fa-twitter-square{
+    size: 50px;
+}
