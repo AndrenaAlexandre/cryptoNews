@@ -118,43 +118,7 @@ h6{
 }
 
 /* Place the navbar at the bottom of the page, and make it stick */
-.navbar {
-    background-color: rgba(255, 235, 205, 0.219);
-    /* overflow: hidden; */
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-  
-  /* Style the links inside the navigation bar */
-.navbar a {
-    float: left;
-    display: block;
-    color: #ffc700;
-    font-weight: bold;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  
-  /* Change the color of links on hover */
-.navbar a:hover {
-    background-color: #1513715d;
-    color: #fa29f68a;
-  }
-  
-  /* Add a color to the active/current link */
-.navbar a.active {
-    /* background-color: #ffc700; */
-    color: #ffc700;
-    font-weight:bold;
-  }
 
-  .navbar a.active:hover {
-    background-color: #1513715d;
-    color: #fa29f68a;
-  }
 .sticky {
     position: fixed;
     top: 0;
@@ -195,12 +159,20 @@ h6{
     size: 50px;
 }
 
-.nav-item a{
-    color:#ffc700;
 
-}
 
 .blockDiv{
+    height: 150px;
+    background-color: rgba(240, 248, 255, 0);
+}
+.z10{
     z-index: 10;
 }
 
+.z20{
+    z-index:20;
+}
+
+.opacity{
+    opacity: .5;
+}
