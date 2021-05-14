@@ -1,0 +1,29 @@
+.footer{
+    display: flex;
+    height: 5%;
+    background-color: #1513715d;
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding-right: 5px;
+    font-size: 17px;
+    justify-content: center;
+}
+
+.footer a{
+    padding-left: 20px;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    padding-top: .5%;
+    color: white;
+    font-size: 20px;
+}
+
+.footer a:hover{
+    color: #fa29f68a;
+}

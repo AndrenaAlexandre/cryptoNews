@@ -128,24 +128,6 @@ h6{
     padding-top: 60px;
   }
 
-.footer{
-    height: 5%;
-    background-color: #1513715d;
-    overflow: hidden;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color: white;
-    text-align: center;
-    padding-right: 5px;
-    font-size: 17px;
-
-}
-
-.footer a{
-
-}
 .parallax{
     background-image: url("/images/parrallax.jpg");
     height: 100%;
@@ -158,8 +140,6 @@ h6{
 .fa-twitter-square{
     size: 50px;
 }
-
-
 
 .blockDiv{
     height: 150px;
