@@ -20,21 +20,23 @@ function displaySymbol(){
     .then(symbolData => {
         // console.log(symbolData);
         // console.log(`This is symbol in Fetch: ${symbol}`);
-        let degF = symbolData.main.temp;
-        let icon = symbolData.weather[0].icon;
-        let description = symbolData.weather[0].description;
-        let imageUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
         // console.log(`This is description: ${description}`);
         // console.log(`This is icon: ${icon}`);
         // console.log(degF)
         let div = document.getElementById('symbol');
-        div.innerText = `${symbol}`;
+        div.innerText = `${symbol.title}`;
+        div.innerText = `${symbol.text}`;
+        div.innerText = `${symbol.source_name}`;
+        div.innerText = `${symbol.date}`;
+        div.innerText = `${symbol.sentiment}`;
+        div.innerText = `${symbol.type}`;
+        div.innerText = `${symbol.news_url}`;
         // console.log(symbol)
         let span = document.getElementById('conditions');
         span.innerText = `${degF.toString()}F ${description}`;
         //Create icon image
-        var image = document.getElementById('icon');
-        image.setAttribute('src', imageUrl);
+        var image = document.getElementById('image');
+        image.setAttribute('src', symbolData.image_url);
         image.width = "250";
         image.height = "250";
         
