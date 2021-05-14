@@ -48,4 +48,7 @@
     mapbox api?
     git add 
     git commit 
-    git push
+    git pushgit 
+
+- responsiveness 
+    https://www.w3schools.com/html/html_responsive.asp
