@@ -3,14 +3,14 @@
 var symbol = " ";
 var urlSymbol = " ";
 var symbolArray = [];
-const dropMenu = document.querySelector('.dropdown-item');
-const input = document.getElementById('symbol');
-// const input = document.getElementById('symbol2');
-// const input = document.getElementById('symbol3');
+var sentimentAnalysis = [];
+const dropMenu = document.querySelector('.dropdown-menu');
+const sentimentMenu = document.querySelector('.sentiment-menu');
+
 dropMenu.addEventListener("click", e => {
-    symbol = input.innerText;
+    symbol = e.target.innerText;
     urlSymbol = `https://cryptonews-api.com/api/v1?tickers=${symbol}&items=50&token=${APIKEY}`;
-    console.log(`This is symbol in Submit: ${symbol}`);
+    console.log(`This is symbol in Event Listener: ${symbol}`);
     displaySymbol();
 })
 
