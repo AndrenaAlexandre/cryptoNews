@@ -10,6 +10,7 @@ html, body{
     background-size: cover;
 }
 
+
 .newsScroll{
     font-family: Calibri;
     font-weight: bold;
@@ -37,13 +38,13 @@ background-color: #1513715d;
 
 
 .ticker{
-    height: 100px;	
+    height: 150px;	
     overflow: hidden;
     position: relative;
     background: rgb(0, 0, 0);
     color: #ffc700;
-    border-top: 1px solid #ffc700;
-    border-bottom: 1px solid #ffc700;
+    /* border-top: 1px solid #ffc700;
+    border-bottom: 1px solid #ffc700; */
 }
 .ticker p {
     position: absolute;
@@ -78,6 +79,7 @@ background-color: #1513715d;
     margin-right: 10%;
     height: 20%;
     margin-bottom: 3%;
+    overflow: wrap;
     
 }
 
@@ -89,6 +91,7 @@ background-color: #1513715d;
     margin-bottom: 3%;
     background-color: #1513715d;
     border-radius: 10px;
+    overflow-wrap: normal;
 }
 
 .thirdRow{
@@ -117,17 +120,18 @@ h6{
 /* Place the navbar at the bottom of the page, and make it stick */
 .navbar {
     background-color: rgba(255, 235, 205, 0.219);
-    overflow: hidden;
+    /* overflow: hidden; */
     position: fixed;
     bottom: 0;
     width: 100%;
   }
   
   /* Style the links inside the navigation bar */
-  .navbar a {
+.navbar a {
     float: left;
     display: block;
-    color: #1513715d;
+    color: #ffc700;
+    font-weight: bold;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -135,15 +139,68 @@ h6{
   }
   
   /* Change the color of links on hover */
-  .navbar a:hover {
+.navbar a:hover {
     background-color: #1513715d;
-    color: black;
+    color: #fa29f68a;
   }
   
   /* Add a color to the active/current link */
-  .navbar a.active {
+.navbar a.active {
     /* background-color: #ffc700; */
     color: #ffc700;
     font-weight:bold;
-
   }
+
+  .navbar a.active:hover {
+    background-color: #1513715d;
+    color: #fa29f68a;
+  }
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+.sticky + .content {
+    padding-top: 60px;
+  }
+
+.footer{
+    height: 5%;
+    background-color: #1513715d;
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding-right: 5px;
+    font-size: 17px;
+
+}
+
+.footer a{
+
+}
+.parallax{
+    background-image: url("/images/parrallax.jpg");
+    height: 100%;
+    background-attachment: fixed;   
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.fa-twitter-square{
+    size: 50px;
+}
+
+.nav-item a{
+    color:#ffc700;
+
+}
+
+.blockDiv{
+    z-index: 10;
+}
+
