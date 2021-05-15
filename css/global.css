@@ -3,7 +3,7 @@ html, body{
     font-family: 'Calibri';
 }
 .bg{
-    background-image: url("C:/Users/Jose/Dropbox/DigitalCrafts/cryptoNews/images/finalbg.jpg");
+    background-image: url("/cryptoNews/images/finalbg.jpg");
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -80,6 +80,7 @@ background-color: #1513715d;
     height: 20%;
     margin-bottom: 3%;
     overflow: wrap;
+    border: solid 2px white;
     
 }
 
@@ -183,7 +184,7 @@ h6{
 
 }
 .parallax{
-    background-image: url("C:/Users/Jose/Dropbox/DigitalCrafts/cryptoNews/images/parrallax.jpg");
+    background-image: url("/cryptoNews/images/parrallax.jpg");
     height: 100%;
     background-attachment: fixed;   
     background-position: center;
