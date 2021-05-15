@@ -74,10 +74,11 @@ background-color: #1513715d;
 }
 
 .firstRow{
-    display: flex;
+    /* display: flex; */
     margin-left: 17%;
     margin-right: 10%;
-    height: 20%;
+    height: 400px;
+    width: 600px;
     margin-bottom: 3%;
     overflow: wrap;
     border: solid 2px white;
@@ -203,5 +204,13 @@ h6{
 
 .blockDiv{
     z-index: 10;
+}
+
+#carouselExampleCaptions{
+    margin: auto;
+    height: 50%;
+    width: 50%;
+    /* border: solid 2px black; */
+    /* color: red; */
 }
 
