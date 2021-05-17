@@ -1,5 +1,6 @@
 .navbar {
     background-color: rgba(0, 255, 85, 0.171);
+    /* background-color: rgb(0, 0, 0); this is for a solid black navbar*/
     /* overflow: hidden; */
     position: fixed;
     bottom: 0;
