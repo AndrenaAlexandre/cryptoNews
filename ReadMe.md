@@ -1,10 +1,22 @@
 1. Purpose of the app/website that we are building
-- To covers fintech, blockchain and Bitcoin bringing you the latest news and analyses on the future of money.
+- EnCrypto is a provider of financial tech, blockchain, and crypto news. We bring you the latest information and analysis on the future of money
+
 
 2. Layout and user functionality 
--
+- 
 
 3. M.V.P
+
+    *Provide the following:
+    - Pull and display API data : Breaking News 
+    - Filter by video/article 
+    - Filter by ticker symbols and display 
+    - Build out all pages: For buttons 
+    - All buttons wworking and navigates to designated page
+    - 
+    
+
+
 
 4. Color schemes 
 
