@@ -6,7 +6,7 @@ var symbolArray = [];
 var topRankingNews = [];
 var breakingNewsArray = [];
 var sentimentAnalysis = [];
-var breakingNewsURL = `https://cryptonews-api.com/api/v1/category?section=general&items=50&token=e446xcdkplpcjckgwkr4glm2e9noxcwdipinyqbo`;
+var breakingNewsURL = `https://cryptonews-api.com/api/v1/category?section=general&items=50&token=${APIKEY}`;
 
 // --breakingNews EventListener Fetch and display
 // const breakingNews = document.getElementById('breakingNews');
