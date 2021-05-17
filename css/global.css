@@ -3,7 +3,7 @@ html, body{
     font-family: 'Calibri';
 }
 .bg{
-    background-image: url("/images/finalbg.jpg");
+    background-image: url("/cryptoNews/images/finalbg.jpg");
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -74,12 +74,14 @@ background-color: #1513715d;
 }
 
 .firstRow{
-    display: flex;
+    /* display: flex; */
     margin-left: 17%;
     margin-right: 10%;
-    height: 20%;
+    height: 400px;
+    width: 600px;
     margin-bottom: 3%;
     overflow: wrap;
+    border: solid 2px white;
     
 }
 
@@ -118,43 +120,7 @@ h6{
 }
 
 /* Place the navbar at the bottom of the page, and make it stick */
-.navbar {
-    background-color: rgba(255, 235, 205, 0.219);
-    /* overflow: hidden; */
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-  
-  /* Style the links inside the navigation bar */
-.navbar a {
-    float: left;
-    display: block;
-    color: #ffc700;
-    font-weight: bold;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  
-  /* Change the color of links on hover */
-.navbar a:hover {
-    background-color: #1513715d;
-    color: #fa29f68a;
-  }
-  
-  /* Add a color to the active/current link */
-.navbar a.active {
-    /* background-color: #ffc700; */
-    color: #ffc700;
-    font-weight:bold;
-  }
 
-  .navbar a.active:hover {
-    background-color: #1513715d;
-    color: #fa29f68a;
-  }
 .sticky {
     position: fixed;
     top: 0;
@@ -183,7 +149,7 @@ h6{
 
 }
 .parallax{
-    background-image: url("/images/parrallax.jpg");
+    background-image: url("/cryptoNews/images/parrallax.jpg");
     height: 100%;
     background-attachment: fixed;   
     background-position: center;
@@ -195,12 +161,41 @@ h6{
     size: 50px;
 }
 
-.nav-item a{
-    color:#ffc700;
 
-}
 
 .blockDiv{
+    height: 150px;
+    background-color: rgba(240, 248, 255, 0);
+}
+.z10{
     z-index: 10;
 }
 
+#carouselExampleCaptions{
+    margin: auto;
+    height: 50%;
+    width: 50%;
+    /* border: solid 2px black; */
+    /* color: red; */
+}
+
+.results{
+    /* border: solid 2px #fa29f68a; */
+    margin-left: 15%;
+    margin-right: 15%;
+    height: 20%;
+    margin-bottom: 3%;
+    background-color: #1513715d;
+    border-radius: 10px;
+    overflow-wrap: normal;
+    color: red
+    font-size: 45%;
+}
+
+.z20{
+    z-index:20;
+}
+
+.opacity{
+    opacity: .5;
+}
