@@ -26,10 +26,11 @@ function displayBreakingNews(){
         console.log(`This is breakingNewsArray`);
         // console.log(breakingNewsArray);
 
+        // window.open("/cryptoNews/results.html",`_news`)
+        
         let count = 0;
         while(count < 10){
 
-            // <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
             let button = document.createElement("button");
             button.setAttribute("type", "button");
             button.setAttribute("data-bs-target", "#carouselExampleCaptions");
@@ -51,45 +52,47 @@ function displayBreakingNews(){
             let appendDiv = document.getElementById('breaking-news');
             appendDiv.append(div);
 
-            let image0 = document.createElement("img");
-            let imageURL0 = breakingNewsArray.data[count].image_url;
-            image0.setAttribute('src', imageURL0);
-            image0.setAttribute('class', "d-block w-100");
-            image0.setAttribute('id', `news-image${count}`);
+            let image = document.createElement("img");
+            let imageURL = breakingNewsArray.data[count].image_url;
+            image.setAttribute('src', imageURL);
+            image.setAttribute('class', "d-block w-100");
+            image.setAttribute('id', `news-image${count}`);
             let appendInfo = document.getElementById(`news-div${count}`);
-            appendInfo.append(image0);
+            appendInfo.append(image);
 
             let div1 = document.createElement("div");
             div1.setAttribute('class', "carousel-caption d-none d-md-block");
-            // div1.setAttribute('class', "carousel-caption");
             div1.setAttribute('id', `caption-div${count}`);
-            // let appendDiv1 = document.getElementById(`news-div${count}`);
             appendInfo.append(div1);
 
-            let title0 = document.createElement("h5");
-            let titleText0 = breakingNewsArray.data[count].title
-            title0.setAttribute('id', `news-title${count}`);
-            title0.innerText = titleText0.toString();
+            let title = document.createElement("h5");
+            let titleText = breakingNewsArray.data[count].title
+            title.setAttribute('id', `news-title${count}`);
+            title.setAttribute('style', "color: goldenrod; font-size: 30px");
+            title.innerText = titleText.toString();
             let appendSubs = document.getElementById(`caption-div${count}`);
-            appendSubs.append(title0);
+            appendSubs.append(title);
 
-            let date0 = document.createElement("p");
-            let dateText0 = breakingNewsArray.data[count].date;
-            date0.setAttribute('id', `news-date${count}`);
-            date0.innerText = dateText0.toString();
-            appendSubs.append(date0);
+            let date = document.createElement("p");
+            let dateText = breakingNewsArray.data[count].date;
+            date.setAttribute('id', `news-date${count}`);
+            date.setAttribute('style', "color: goldenrod; font-size: 20px");
+            date.innerText = dateText.toString();
+            appendSubs.append(date);
             
-            let sentiment0 = document.createElement("p");
-            let sentimentText0 = breakingNewsArray.data[count].sentiment;
-            sentiment0.setAttribute('id', `news-sentiment${count}`);
-            sentiment0.innerText = `Sentiment: ${sentimentText0.toString()}`;
-            appendSubs.append(sentiment0);
+            let sentiment = document.createElement("p");
+            let sentimentText = breakingNewsArray.data[count].sentiment;
+            sentiment.setAttribute('id', `news-sentiment${count}`);
+            sentiment.setAttribute('style', "color: goldenrod; font-size: 20px");
+            sentiment.innerText = `Sentiment: ${sentimentText.toString()}`;
+            appendSubs.append(sentiment);
 
-            let source0 = document.createElement("p");
-            let sourceText0 = breakingNewsArray.data[count].source_name;
-            source0.setAttribute('id', `news-source${count}`);
-            source0.innerText = `Source: ${sourceText0.toString()}`;
-            appendSubs.append(source0);
+            let source = document.createElement("p");
+            let sourceText = breakingNewsArray.data[count].source_name;
+            source.setAttribute('id', `news-source${count}`);
+            source.setAttribute('style', "color: goldenrod; font-size: 20px");
+            source.innerText = `Source: ${sourceText.toString()}`;
+            appendSubs.append(source);
 
             count = count + 1;
             //END Create News Info
@@ -124,7 +127,7 @@ function displaySymbol(){
         // window.open("/cryptoNews/results.html");
         let count = 0;
 
-        while(count < 5){
+        while(count < 4){
 
             //Create results
             let div = document.createElement("div");
@@ -133,37 +136,37 @@ function displaySymbol(){
             let appendDiv = document.querySelector('.results');
             appendDiv.append(div);
 
-            let image0 = document.createElement("img");
-            let imageURL0 = symbolArray.data[count].image_url;
-            image0.setAttribute('src', imageURL0);
-            image0.setAttribute('class', "d-block w-25");
-            image0.setAttribute('id', `results-image${count}`);
+            let image = document.createElement("img");
+            let imageURL = symbolArray.data[count].image_url;
+            image.setAttribute('src', imageURL);
+            image.setAttribute('class', "d-block w-25");
+            image.setAttribute('id', `results-image${count}`);
             let appendInfo = document.getElementById(`results-div${count}`);
-            appendInfo.append(image0);
+            appendInfo.append(image);
 
-            let title0 = document.createElement("h5");
-            let titleText0 = symbolArray.data[count].title
-            title0.setAttribute('id', `results-title${count}`);
-            title0.innerText = titleText0.toString();
-            appendInfo.append(title0);
+            let title = document.createElement("h5");
+            let titleText = symbolArray.data[count].title
+            title.setAttribute('id', `results-title${count}`);
+            title.innerText = titleText.toString();
+            appendInfo.append(title);
 
-            let date0 = document.createElement("h5");
-            let dateText0 = symbolArray.data[count].date;
-            date0.setAttribute('id', `results-date${count}`);
-            date0.innerText = dateText0.toString();
-            appendInfo.append(date0);
+            let date = document.createElement("h5");
+            let dateText = symbolArray.data[count].date;
+            date.setAttribute('id', `results-date${count}`);
+            date.innerText = dateText.toString();
+            appendInfo.append(date);
             
-            let sentiment0 = document.createElement("h5");
-            let sentimentText0 = symbolArray.data[count].sentiment;
-            sentiment0.setAttribute('id', `results-sentiment${count}`);
-            sentiment0.innerText = `Sentiment: ${sentimentText0.toString()}`;
-            appendInfo.append(sentiment0);
+            let sentiment = document.createElement("h5");
+            let sentimentText = symbolArray.data[count].sentiment;
+            sentiment.setAttribute('id', `results-sentiment${count}`);
+            sentiment.innerText = `Sentiment: ${sentimentText0.toString()}`;
+            appendInfo.append(sentiment);
 
-            let source0 = document.createElement("h5");
-            let sourceText0 = symbolArray.data[count].source_name;
-            source0.setAttribute('id', `results-source${count}`);
-            source0.innerText = `Source: ${sourceText0.toString()}`;
-            appendInfo.append(source0);
+            let source = document.createElement("h5");
+            let sourceText = symbolArray.data[count].source_name;
+            source.setAttribute('id', `results-source${count}`);
+            source.innerText = `Source: ${sourceText.toString()}`;
+            appendInfo.append(source);
 
             count = count + 1;
 
@@ -171,7 +174,7 @@ function displaySymbol(){
         } 
     })
 }
-// -- END resulMenu EventListener Fetch and display
+// -- END resultMenu EventListener Fetch and display
 
 
 displayBreakingNews()
