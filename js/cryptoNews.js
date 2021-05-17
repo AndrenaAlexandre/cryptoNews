@@ -1,7 +1,5 @@
 
 
-var symbol = " ";
-var urlSymbol = " ";
 var symbolArray = [];
 var topRankingNews = [];
 var breakingNewsArray = [];
@@ -111,16 +109,27 @@ function displayBreakingNews(){
 const newsMenu = document.querySelector('.dropdown-menu');
 const sentimentMenu = document.querySelector('.sentiment-menu');
 newsMenu.addEventListener("click", e => {
-    symbol = e.target.innerText;
+    e.preventDefault();
+    if(e.target.id === "BTC" || e.target.id === "ETH" || e.target.id ==="XRP"){
+        localStorage.symbol = e.target.id; 
+        window.location.href = "results.html"
+    }
+    
+    // symbol = e.target.innerText;
     // symbol = e.target.
-    urlSymbol = `https://cryptonews-api.com/api/v1?tickers=${symbol}&items=50&token=${APIKEY}`;
-    console.log(`This is symbol in Event Listener: ${symbol}`);
-    // window.open("/cryptoNews/results.html")
-    displaySymbol(symbol);
+    // urlSymbol = `https://cryptonews-api.com/api/v1?tickers=${symbol}&items=50&token=${APIKEY}`;
+    // console.log(`This is symbol in Event Listener: ${symbol}`);
+    // // window.open("/cryptoNews/results.html")
+    // displaySymbol(symbol);
 })
 
+
 function displaySymbol(){
-    // console.log(`This is symbol in displaySymbol: ${symbol}`);
+    
+    let symbol = localStorage.symbol;
+    // if(localStorage.symbol == undefined || localStorage == null ? "BTC" : localStorage.symbol)
+    let urlSymbol = `https://cryptonews-api.com/api/v1?tickers=${symbol}&items=50&token=${APIKEY}`;
+
     fetch(urlSymbol)
     .then(apiData1 => apiData1.json())
     .then(symbolData => {
