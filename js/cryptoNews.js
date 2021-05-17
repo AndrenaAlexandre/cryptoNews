@@ -4,34 +4,29 @@ var symbolArray = [];
 var topRankingNews = [];
 var breakingNewsArray = [];
 var sentimentAnalysis = [];
-var breakingNewsURL = `https://cryptonews-api.com/api/v1/category?section=general&items=50&token=${APIKEY}`;
-
-// --breakingNews EventListener Fetch and display
-// const breakingNews = document.getElementById('breakingNews');
-// const sentimentMenu = document.querySelector('.sentiment-menu');
-// breakingNews.addEventListener("click", e => {
-//     urlSymbol = `https://cryptonews-api.com/api/v1/category?section=general&items=50&token=${APIKEY}`;
-//     console.log(`This is symbol in Event Listener: ${symbol}`);
-//     displayBreakingNews();
-// })
 
 function displayBreakingNews(){
+    let breakingNewsURL = `https://cryptonews-api.com/api/v1/category?section=general&items=50&token=${APIKEY}`
     fetch(breakingNewsURL)
     .then(apiData2 => apiData2.json())
     .then(breakingNewsData => {
-        // console.log(breakingNewsData.data.length);
+        
         breakingNewsArray = breakingNewsData;
-        // console.log(`This is breakingNewsArray`);
-        // console.log(breakingNewsArray);
-        // console.log(breakingNewsArray.data.length);
-
         // window.open("/cryptoNews/results.html",`_news`)
         let fontColorTitle = "white";
         let fontColor = "goldenrod";
         let fontSize = "25px";
         let fontSize1 = "20px";
+        
         let count = 0;
         while(count < 10){
+            let sentimentColor = "white"
+            if(breakingNewsArray.data[count].sentiment == "Positive"){
+                sentimentColor = "dodgerblue";
+            }
+            else if(breakingNewsArray.data[count].sentiment == "Negative"){
+                sentimentColor = "red";
+            }
 
             let button = document.createElement("button");
             button.setAttribute("type", "button");
@@ -85,7 +80,7 @@ function displayBreakingNews(){
             let sentiment = document.createElement("p");
             let sentimentText = breakingNewsArray.data[count].sentiment;
             sentiment.setAttribute('id', `news-sentiment${count}`);
-            sentiment.setAttribute('style', `color: ${fontColor}; font-size: ${fontSize1}`);
+            sentiment.setAttribute('style', `color: ${sentimentColor}; font-size: ${fontSize1}`);
             sentiment.innerText = `Sentiment: ${sentimentText.toString()}`;
             appendSubs.append(sentiment);
 
@@ -104,7 +99,6 @@ function displayBreakingNews(){
 }
 // -- END breakingNews EventListener Fetch and display
 
-
 // --newsMenu EventListener Fetch and display
 const newsMenu = document.querySelector('.dropdown-menu');
 const sentimentMenu = document.querySelector('.sentiment-menu');
@@ -114,9 +108,7 @@ newsMenu.addEventListener("click", e => {
         localStorage.symbol = e.target.id; 
         window.location.href = "results.html"
     }
-    
-    // symbol = e.target.innerText;
-    // symbol = e.target.
+
     // urlSymbol = `https://cryptonews-api.com/api/v1?tickers=${symbol}&items=50&token=${APIKEY}`;
     // console.log(`This is symbol in Event Listener: ${symbol}`);
     // // window.open("/cryptoNews/results.html")
@@ -133,13 +125,10 @@ function displaySymbol(){
     fetch(urlSymbol)
     .then(apiData1 => apiData1.json())
     .then(symbolData => {
-        console.log(symbolData.length);
-        // symbolArray = symbolData;
-        // symbolArray = [...symbolArray, ...symbolData];
+
         symbolArray = symbolData;
         // console.log(`This is symbolArray`);
-        console.log(symbolArray.data.length);
-      
+        // console.log(symbolArray.data.length);
         
         let fontColorTitle = "black";
         let fontColor = "black";
@@ -148,7 +137,6 @@ function displaySymbol(){
         let count = 0;
 
         while(count < 4){
-
             //Create results
             let div = document.createElement("div");
             div.setAttribute('class', "carousel-item active d-flex flex-row");
@@ -193,12 +181,9 @@ function displaySymbol(){
             appendInfo.append(source);
 
             count = count + 1;
-
             // END Create results
         } 
     })
 }
 // -- END resultMenu EventListener Fetch and display
 
-
-displayBreakingNews()
