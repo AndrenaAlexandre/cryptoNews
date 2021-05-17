@@ -6,7 +6,7 @@ var symbolArray = [];
 var topRankingNews = [];
 var breakingNewsArray = [];
 var sentimentAnalysis = [];
-var breakingNewsURL = `https://cryptonews-api.com/api/v1/category?section=general&items=${APIKEY}`;
+var breakingNewsURL = `https://cryptonews-api.com/api/v1/category?section=general&items=50&token=e446xcdkplpcjckgwkr4glm2e9noxcwdipinyqbo`;
 
 // --breakingNews EventListener Fetch and display
 // const breakingNews = document.getElementById('breakingNews');
@@ -26,71 +26,75 @@ function displayBreakingNews(){
         console.log(`This is breakingNewsArray`);
         // console.log(breakingNewsArray);
 
-        //Create News0 Info
-        let imageURL0 = breakingNewsArray.data[0].image_url;
-        let newsImage0 = document.getElementById('news-image0');
-        newsImage0.setAttribute('src', imageURL0);
+        let count = 0;
+        while(count < 10){
 
-        let titleText0 = breakingNewsArray.data[0].title;
-        let newsTitle0 = document.getElementById('news-title0');
-        newsTitle0.innerText = titleText0.toString();
+            // <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            let button = document.createElement("button");
+            button.setAttribute("type", "button");
+            button.setAttribute("data-bs-target", "#carouselExampleCaptions");
+            button.setAttribute("data-bs-slide-to", `${count}`);
+            button.setAttribute("class", "active");
+            button.setAttribute("aria-current", "true");
+            button.setAttribute("aria-label", `Slide ${count + 1}`);
+            let appendButtons = document.getElementById('slide-buttons');
+            appendButtons.append(button);
 
-        let date0 = breakingNewsArray.data[0].date;
-        let newsDate0 = document.getElementById('news-date0');
-        newsDate0.innerText = date0.toString();
+            let div = document.createElement("div");
+            if(count == 0){
+                div.setAttribute('class', "carousel-item active");
+            }
+            else{
+                div.setAttribute('class', "carousel-item");
+            }
+            div.setAttribute('id', `news-div${count}`);
+            let appendDiv = document.getElementById('breaking-news');
+            appendDiv.append(div);
 
-        let sentiment0 = breakingNewsArray.data[0].sentiment;
-        let newsSentiment0 = document.getElementById('news-sentiment0');
-        newsSentiment0.innerText = `Sentiment: ${sentiment0.toString()}`;
+            let image0 = document.createElement("img");
+            let imageURL0 = breakingNewsArray.data[count].image_url;
+            image0.setAttribute('src', imageURL0);
+            image0.setAttribute('class', "d-block w-100");
+            image0.setAttribute('id', `news-image${count}`);
+            let appendInfo = document.getElementById(`news-div${count}`);
+            appendInfo.append(image0);
 
-        let source0 = breakingNewsArray.data[0].source_name;
-        let sourceName0 = document.getElementById('news-source_name0');
-        sourceName0.innerText = source0.toString();
-        //END Create News0 Info
+            let div1 = document.createElement("div");
+            div1.setAttribute('class', "carousel-caption d-none d-md-block");
+            // div1.setAttribute('class', "carousel-caption");
+            div1.setAttribute('id', `caption-div${count}`);
+            // let appendDiv1 = document.getElementById(`news-div${count}`);
+            appendInfo.append(div1);
 
-        //Create News1 Info
-        let imageURL1 = breakingNewsArray.data[1].image_url;
-        let newsImage1 = document.getElementById('news-image1');
-        newsImage1.setAttribute('src', imageURL1);
+            let title0 = document.createElement("h5");
+            let titleText0 = breakingNewsArray.data[count].title
+            title0.setAttribute('id', `news-title${count}`);
+            title0.innerText = titleText0.toString();
+            let appendSubs = document.getElementById(`caption-div${count}`);
+            appendSubs.append(title0);
 
-        let titleText1 = breakingNewsArray.data[1].title;
-        let newsTitle1 = document.getElementById('news-title1');
-        newsTitle1.innerText = titleText1.toString();
+            let date0 = document.createElement("p");
+            let dateText0 = breakingNewsArray.data[count].date;
+            date0.setAttribute('id', `news-date${count}`);
+            date0.innerText = dateText0.toString();
+            appendSubs.append(date0);
+            
+            let sentiment0 = document.createElement("p");
+            let sentimentText0 = breakingNewsArray.data[count].sentiment;
+            sentiment0.setAttribute('id', `news-sentiment${count}`);
+            sentiment0.innerText = `Sentiment: ${sentimentText0.toString()}`;
+            appendSubs.append(sentiment0);
 
-        let date1 = breakingNewsArray.data[1].date;
-        let newsDate1 = document.getElementById('news-date1');
-        newsDate1.innerText = date1.toString();
+            let source0 = document.createElement("p");
+            let sourceText0 = breakingNewsArray.data[count].source_name;
+            source0.setAttribute('id', `news-source${count}`);
+            source0.innerText = `Source: ${sourceText0.toString()}`;
+            appendSubs.append(source0);
 
-        let sentiment1 = breakingNewsArray.data[1].sentiment;
-        let newsSentiment1 = document.getElementById('news-sentiment1');
-        newsSentiment1.innerText = `Sentiment: ${sentiment1.toString()}`;
-
-        let source1 = breakingNewsArray.data[1].source_name;
-        let sourceName1 = document.getElementById('news-source_name1');
-        sourceName1.innerText = source1.toString();
-        //END Create News1 Info
-
-        //Create News2 Info
-        let imageURL2 = breakingNewsArray.data[2].image_url;
-        let newsImage2 = document.getElementById('news-image2');
-        newsImage2.setAttribute('src', imageURL2);
-
-        let titleText2 = breakingNewsArray.data[2].title;
-        let newsTitle2 = document.getElementById('news-title2');
-        newsTitle2.innerText = titleText2.toString();
-
-        let date2 = breakingNewsArray.data[2].date;
-        let newsDate2 = document.getElementById('news-date2');
-        newsDate2.innerText = date2.toString();
-
-        let sentiment2 = breakingNewsArray.data[2].sentiment;
-        let newsSentiment2 = document.getElementById('news-sentiment2');
-        newsSentiment2.innerText = `Sentiment: ${sentiment2.toString()}`;
-
-        let source2 = breakingNewsArray.data[2].source_name;
-        let sourceName2 = document.getElementById('news-source_name2');
-        sourceName2.innerText = source2.toString();
-        //END Create News2 Info
+            count = count + 1;
+            //END Create News Info
+        }
+        return false
     })
 }
 // -- END breakingNews EventListener Fetch and display
@@ -110,41 +114,64 @@ function displaySymbol(){
     fetch(urlSymbol)
     .then(apiData1 => apiData1.json())
     .then(symbolData => {
-        console.log(symbolData);
-        // console.log(`This is symbol in Fetch: ${symbol}`);
-        // console.log(`This is description: ${description}`);
-        // console.log(`This is icon: ${icon}`);
-        // console.log(degF)
-
+        console.log(symbolData.length);
+        // symbolArray = symbolData;
+        // symbolArray = [...symbolArray, ...symbolData];
         symbolArray = symbolData;
+        // console.log(`This is symbolArray`);
+        console.log(symbolArray.length);
       
-        console.log(`This is symbolArray`);
-        console.log(symbolArray);
-        // let div = document.getElementById('symbol');
+        // window.open("/cryptoNews/results.html");
+        let count = 0;
 
-        // div.innerText = `${symbol.title}`;
-        // div.innerText = `${symbol.text}`;
-        // div.innerText = `${symbol.source_name}`;
-        // div.innerText = `${symbol.date}`;
-        // div.innerText = `${symbol.sentiment}`;
-        // div.innerText = `${symbol.type}`;
-        // div.innerText = `${symbol.news_url}`;
-        // // console.log(symbol)
-        // let span = document.getElementById('conditions');
-        // span.innerText = `${degF.toString()}F ${description}`;
-        // //Create icon image
-        // var image = document.getElementById('image');
-        // image.setAttribute('src', symbolData.image_url);
-        // image.width = "250";
-        // image.height = "250";
-        
-        // let imageBin = document.getElementById('pic');
-        // imageBin.append(image);
+        while(count < 5){
 
-        // input.value = "";//for clearing the input
+            //Create results
+            let div = document.createElement("div");
+            div.setAttribute('class', "carousel-item active");
+            div.setAttribute('id', `results-div${count}`);
+            let appendDiv = document.querySelector('.results');
+            appendDiv.append(div);
+
+            let image0 = document.createElement("img");
+            let imageURL0 = symbolArray.data[count].image_url;
+            image0.setAttribute('src', imageURL0);
+            image0.setAttribute('class', "d-block w-25");
+            image0.setAttribute('id', `results-image${count}`);
+            let appendInfo = document.getElementById(`results-div${count}`);
+            appendInfo.append(image0);
+
+            let title0 = document.createElement("h5");
+            let titleText0 = symbolArray.data[count].title
+            title0.setAttribute('id', `results-title${count}`);
+            title0.innerText = titleText0.toString();
+            appendInfo.append(title0);
+
+            let date0 = document.createElement("h5");
+            let dateText0 = symbolArray.data[count].date;
+            date0.setAttribute('id', `results-date${count}`);
+            date0.innerText = dateText0.toString();
+            appendInfo.append(date0);
+            
+            let sentiment0 = document.createElement("h5");
+            let sentimentText0 = symbolArray.data[count].sentiment;
+            sentiment0.setAttribute('id', `results-sentiment${count}`);
+            sentiment0.innerText = `Sentiment: ${sentimentText0.toString()}`;
+            appendInfo.append(sentiment0);
+
+            let source0 = document.createElement("h5");
+            let sourceText0 = symbolArray.data[count].source_name;
+            source0.setAttribute('id', `results-source${count}`);
+            source0.innerText = `Source: ${sourceText0.toString()}`;
+            appendInfo.append(source0);
+
+            count = count + 1;
+
+            // END Create results
+        } 
     })
 }
-// -- END newsMenu EventListener Fetch and display
+// -- END resulMenu EventListener Fetch and display
 
 
 displayBreakingNews()

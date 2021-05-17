@@ -214,3 +214,16 @@ h6{
     /* color: red; */
 }
 
+.results{
+    border: solid 2px #fa29f68a;
+    margin-left: 15%;
+    margin-right: 15%;
+    height: 20%;
+    margin-bottom: 3%;
+    background-color: #1513715d;
+    border-radius: 10px;
+    overflow-wrap: normal;
+    color: red
+    font-size: 45%;
+}
+
