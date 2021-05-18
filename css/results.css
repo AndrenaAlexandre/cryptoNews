@@ -9,3 +9,25 @@
     text-align: center;
     overflow-wrap: normal;
 }
+
+.spacing{
+    /* padding-left: 2%; */
+    margin-bottom: 3%;
+}
+
+h5{
+    margin-left: 1%;
+    flex-wrap: auto;
+    width:50%;
+    text-align: center;
+    text-shadow: 1px 1px rgba(240, 240, 240, 0.541);
+}
+
+h4{
+    margin-left: 1%;
+    flex-wrap: auto;
+    width:50%;
+    text-shadow: 1px 1px rgba(240, 240, 240, 0.541);
+}
+
+
