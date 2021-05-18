@@ -1,35 +1,32 @@
 
 
-var symbol = " ";
-var urlSymbol = " ";
 var symbolArray = [];
 var topRankingNews = [];
 var breakingNewsArray = [];
 var sentimentAnalysis = [];
-var breakingNewsURL = `https://cryptonews-api.com/api/v1/category?section=general&items=50&token=${APIKEY}`;
-
-// --breakingNews EventListener Fetch and display
-// const breakingNews = document.getElementById('breakingNews');
-// const sentimentMenu = document.querySelector('.sentiment-menu');
-// breakingNews.addEventListener("click", e => {
-//     urlSymbol = `https://cryptonews-api.com/api/v1/category?section=general&items=50&token=${APIKEY}`;
-//     console.log(`This is symbol in Event Listener: ${symbol}`);
-//     displayBreakingNews();
-// })
 
 function displayBreakingNews(){
+    let breakingNewsURL = `https://cryptonews-api.com/api/v1/category?section=general&items=50&token=${APIKEY}`
     fetch(breakingNewsURL)
     .then(apiData2 => apiData2.json())
     .then(breakingNewsData => {
-        // console.log(breakingNewsData);
+        
         breakingNewsArray = breakingNewsData;
-        console.log(`This is breakingNewsArray`);
-        // console.log(breakingNewsArray);
-
         // window.open("/cryptoNews/results.html",`_news`)
+        let fontColorTitle = "white";
+        let fontColor = "goldenrod";
+        let fontSize = "25px";
+        let fontSize1 = "20px";
         
         let count = 0;
         while(count < 10){
+            let sentimentColor = "white"
+            if(breakingNewsArray.data[count].sentiment == "Positive"){
+                sentimentColor = "dodgerblue";
+            }
+            else if(breakingNewsArray.data[count].sentiment == "Negative"){
+                sentimentColor = "red";
+            }
 
             let button = document.createElement("button");
             button.setAttribute("type", "button");
@@ -68,7 +65,7 @@ function displayBreakingNews(){
             let title = document.createElement("h5");
             let titleText = breakingNewsArray.data[count].title
             title.setAttribute('id', `news-title${count}`);
-            title.setAttribute('style', "color: goldenrod; font-size: 30px");
+            title.setAttribute('style', `color: ${fontColorTitle}; font-size: ${fontSize}`);
             title.innerText = titleText.toString();
             let appendSubs = document.getElementById(`caption-div${count}`);
             appendSubs.append(title);
@@ -76,21 +73,21 @@ function displayBreakingNews(){
             let date = document.createElement("p");
             let dateText = breakingNewsArray.data[count].date;
             date.setAttribute('id', `news-date${count}`);
-            date.setAttribute('style', "color: goldenrod; font-size: 20px");
+            date.setAttribute('style', `color: ${fontColor}; font-size: ${fontSize1}`);
             date.innerText = dateText.toString();
             appendSubs.append(date);
             
             let sentiment = document.createElement("p");
             let sentimentText = breakingNewsArray.data[count].sentiment;
             sentiment.setAttribute('id', `news-sentiment${count}`);
-            sentiment.setAttribute('style', "color: goldenrod; font-size: 20px");
+            sentiment.setAttribute('style', `color: ${sentimentColor}; font-size: ${fontSize1}`);
             sentiment.innerText = `Sentiment: ${sentimentText.toString()}`;
             appendSubs.append(sentiment);
 
             let source = document.createElement("p");
             let sourceText = breakingNewsArray.data[count].source_name;
             source.setAttribute('id', `news-source${count}`);
-            source.setAttribute('style', "color: goldenrod; font-size: 20px");
+            source.setAttribute('style', `color: ${fontColor}; font-size: ${fontSize1}`);
             source.innerText = `Source: ${sourceText.toString()}`;
             appendSubs.append(source);
 
@@ -102,36 +99,47 @@ function displayBreakingNews(){
 }
 // -- END breakingNews EventListener Fetch and display
 
-
 // --newsMenu EventListener Fetch and display
 const newsMenu = document.querySelector('.dropdown-menu');
 const sentimentMenu = document.querySelector('.sentiment-menu');
 newsMenu.addEventListener("click", e => {
-    symbol = e.target.innerText;
-    urlSymbol = `https://cryptonews-api.com/api/v1?tickers=${symbol}&items=50&token=${APIKEY}`;
-    console.log(`This is symbol in Event Listener: ${symbol}`);
-    displaySymbol();
+    e.preventDefault();
+    if(e.target.id === "BTC" || e.target.id === "ETH" || e.target.id ==="XRP"){
+        localStorage.symbol = e.target.id; 
+        window.location.href = "results.html"
+    }
+
+    // urlSymbol = `https://cryptonews-api.com/api/v1?tickers=${symbol}&items=50&token=${APIKEY}`;
+    // console.log(`This is symbol in Event Listener: ${symbol}`);
+    // // window.open("/cryptoNews/results.html")
+    // displaySymbol(symbol);
 })
 
+
 function displaySymbol(){
+    
+    let symbol = localStorage.symbol;
+    // if(localStorage.symbol == undefined || localStorage == null ? "BTC" : localStorage.symbol)
+    let urlSymbol = `https://cryptonews-api.com/api/v1?tickers=${symbol}&items=50&token=${APIKEY}`;
+
     fetch(urlSymbol)
     .then(apiData1 => apiData1.json())
     .then(symbolData => {
-        console.log(symbolData.length);
-        // symbolArray = symbolData;
-        // symbolArray = [...symbolArray, ...symbolData];
+
         symbolArray = symbolData;
         // console.log(`This is symbolArray`);
-        console.log(symbolArray.length);
-      
-        // window.open("/cryptoNews/results.html");
+        // console.log(symbolArray.data.length);
+        
+        let fontColorTitle = "black";
+        let fontColor = "black";
+        let fontSize = "20px";
+        let fontSize1 = "20px";
         let count = 0;
 
         while(count < 4){
-
             //Create results
             let div = document.createElement("div");
-            div.setAttribute('class', "carousel-item active");
+            div.setAttribute('class', "carousel-item active d-flex flex-row");
             div.setAttribute('id', `results-div${count}`);
             let appendDiv = document.querySelector('.results');
             appendDiv.append(div);
@@ -139,7 +147,7 @@ function displaySymbol(){
             let image = document.createElement("img");
             let imageURL = symbolArray.data[count].image_url;
             image.setAttribute('src', imageURL);
-            image.setAttribute('class', "d-block w-25");
+            image.setAttribute('class', "d-block w-25 justify-center");
             image.setAttribute('id', `results-image${count}`);
             let appendInfo = document.getElementById(`results-div${count}`);
             appendInfo.append(image);
@@ -147,34 +155,35 @@ function displaySymbol(){
             let title = document.createElement("h5");
             let titleText = symbolArray.data[count].title
             title.setAttribute('id', `results-title${count}`);
+            title.setAttribute('style', `color: ${fontColorTitle}; font-size: ${fontSize}`);
             title.innerText = titleText.toString();
             appendInfo.append(title);
 
             let date = document.createElement("h5");
             let dateText = symbolArray.data[count].date;
             date.setAttribute('id', `results-date${count}`);
+            date.setAttribute('style', `color: ${fontColor}; font-size: ${fontSize1}`);
             date.innerText = dateText.toString();
             appendInfo.append(date);
             
             let sentiment = document.createElement("h5");
             let sentimentText = symbolArray.data[count].sentiment;
             sentiment.setAttribute('id', `results-sentiment${count}`);
-            sentiment.innerText = `Sentiment: ${sentimentText0.toString()}`;
+            sentiment.setAttribute('style', `color: ${fontColor}; font-size: ${fontSize1}`);
+            sentiment.innerText = `Sentiment: ${sentimentText.toString()}`;
             appendInfo.append(sentiment);
 
             let source = document.createElement("h5");
             let sourceText = symbolArray.data[count].source_name;
             source.setAttribute('id', `results-source${count}`);
+            source.setAttribute('style', `color: ${fontColor}; font-size: ${fontSize1}`);
             source.innerText = `Source: ${sourceText.toString()}`;
             appendInfo.append(source);
 
             count = count + 1;
-
             // END Create results
         } 
     })
 }
 // -- END resultMenu EventListener Fetch and display
 
-
-displayBreakingNews()
