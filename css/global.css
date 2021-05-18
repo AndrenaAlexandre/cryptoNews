@@ -9,7 +9,22 @@ html, body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+.aboutBg{
+    background-image: url("/images/inverse.jpg");
 
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.aboutFont{
+    color: white;
+}
+
+.about{
+    text-align: center;
+    font-size: 25px;
+}
 
 .newsScroll{
     font-family: Calibri;
@@ -125,10 +140,10 @@ h6{
     position: fixed;
     top: 0;
     width: 100%;
-  }
+}
 .sticky + .content {
     padding-top: 60px;
-  }
+}
 
 .parallax{
     background-image: url("/images/parrallax.jpg");
@@ -155,6 +170,8 @@ h6{
     margin: auto;
     height: 50%;
     width: 50%;
+    overflow: hidden;
+    text-shadow: 2px 2px black;
     /* border: solid 2px black; */
     /* color: red; */
 }
@@ -165,10 +182,9 @@ h6{
     margin-right: 15%;
     height: 20%;
     margin-bottom: 3%;
-    background-color: #1513715d;
+    /* background-color: #1513715d; */
     border-radius: 10px;
     overflow-wrap: normal;
-    color: red;
     font-size: 45%;
 }
 
@@ -179,3 +195,4 @@ h6{
 .opacity{
     opacity: .5;
 }
+
