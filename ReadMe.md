@@ -3,16 +3,16 @@
 
 
 2. Layout and user functionality 
-- 
+---- 80% done with user functionality
 
 3. M.V.P
 
     *Provide the following:
-    - Pull and display API data : Breaking News 
-    - Filter by video/article 
-    - Filter by ticker symbols and display 
-    - Build out all pages: For buttons 
-    - All buttons wworking and navigates to designated page
+    - Pull and display API data : Breaking News /done 
+    - Filter by video/article /not done yet 
+    - Filter by ticker symbols and display / done 
+    - Build out all pages with buttons / 80% done  
+    - All buttons working and navigates to designated page / 80%
     - 
     
 
@@ -29,7 +29,8 @@
 * How to run/deploy/use your application
 
 * Tech Stack
-    * Languages, APIs
+    * Languages: CSS, JS, HTML,   
+    * APIs: 1 from cryptonews-api.com, 1 chart widget from tradingview.com, 1 chart widget from cryptohopper.com
     * Other: AJAX, JSON Photoshop
 
 * MVP
@@ -66,3 +67,7 @@
     https://www.w3schools.com/html/html_responsive.asp
 
 - pass: 83ehBBA7tRNDNvX
+
+- Facebook link: https://www.facebook.com/EnCrypto-News-111987951063569
+- Twitter link: https://twitter.com/EncryptoNews
+- Instagram link: https://www.instagram.com/encryptonews/
