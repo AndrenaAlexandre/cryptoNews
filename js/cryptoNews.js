@@ -64,7 +64,7 @@ function displayBreakingNews(){
 
             let title = document.createElement("a");
             let titleText = breakingNewsArray.data[count].title
-            div1.setAttribute('href', breakingNewsArray.data[count].news_url);
+            title.setAttribute('href', breakingNewsArray.data[count].news_url);
             title.setAttribute('id', `news-title${count}`);
             title.setAttribute('style', `color: ${fontColorTitle}; font-size: ${fontSize}`);
             title.innerText = titleText.toString();
@@ -132,7 +132,14 @@ function displaySymbol(){
         let fontSize1 = "18px";
         let count = 0;
 
-        while(count < 4){
+        while(count < 50){
+            let sentimentColor = "goldenrod"
+            if(symbolArray.data[count].sentiment == "Positive"){
+                sentimentColor = "dodgerblue";
+            }
+            else if(symbolArray.data[count].sentiment == "Negative"){
+                sentimentColor = "red";
+            }
             //Create results
             let div = document.createElement("div");
             div.setAttribute('class', "carousel-item active d-flex flex-row spacing");
@@ -148,8 +155,9 @@ function displaySymbol(){
             let appendInfo = document.getElementById(`results-div${count}`);
             appendInfo.append(image);
 
-            let title = document.createElement("h4");
+            let title = document.createElement("a");
             let titleText = symbolArray.data[count].title
+            title.setAttribute('href', symbolArray.data[count].news_url);
             title.setAttribute('id', `results-title${count}`);
             title.setAttribute('style', `color: ${fontColorTitle}; font-size: ${fontSize}`);
             title.innerText = titleText.toString();
@@ -165,7 +173,7 @@ function displaySymbol(){
             let sentiment = document.createElement("h5");
             let sentimentText = symbolArray.data[count].sentiment;
             sentiment.setAttribute('id', `results-sentiment${count}`);
-            sentiment.setAttribute('style', `color: ${fontColor}; font-size: ${fontSize1}`);
+            sentiment.setAttribute('style', `color: ${sentimentColor}; font-size: ${fontSize1}`);
             sentiment.innerText = `Sentiment: ${sentimentText.toString()}`;
             appendInfo.append(sentiment);
 
