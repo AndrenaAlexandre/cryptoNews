@@ -139,7 +139,7 @@ function displaySymbol(){
         while(count < 4){
             //Create results
             let div = document.createElement("div");
-            div.setAttribute('class', "carousel-item active d-flex flex-row");
+            div.setAttribute('class', "carousel-item active d-flex flex-row spacing");
             div.setAttribute('id', `results-div${count}`);
             let appendDiv = document.querySelector('.results');
             appendDiv.append(div);
@@ -152,7 +152,7 @@ function displaySymbol(){
             let appendInfo = document.getElementById(`results-div${count}`);
             appendInfo.append(image);
 
-            let title = document.createElement("h5");
+            let title = document.createElement("h4");
             let titleText = symbolArray.data[count].title
             title.setAttribute('id', `results-title${count}`);
             title.setAttribute('style', `color: ${fontColorTitle}; font-size: ${fontSize}`);
