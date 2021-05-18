@@ -5,6 +5,11 @@ var topRankingNews = [];
 var breakingNewsArray = [];
 var sentimentAnalysis = [];
 
+function onLoad(){
+    displayBreakingNews();
+    topRanking();
+}
+
 function displayBreakingNews(){
     let breakingNewsURL = `https://cryptonews-api.com/api/v1/category?section=general&items=50&token=${APIKEY}`
     fetch(breakingNewsURL)
@@ -64,7 +69,8 @@ function displayBreakingNews(){
 
             let title = document.createElement("a");
             let titleText = breakingNewsArray.data[count].title
-            div1.setAttribute('href', breakingNewsArray.data[count].news_url);
+            title.setAttribute('href', breakingNewsArray.data[count].news_url);
+            title.setAttribute('target', '_blank');
             title.setAttribute('id', `news-title${count}`);
             title.setAttribute('style', `color: ${fontColorTitle}; font-size: ${fontSize}`);
             title.innerText = titleText.toString();
@@ -132,7 +138,14 @@ function displaySymbol(){
         let fontSize1 = "18px";
         let count = 0;
 
-        while(count < 4){
+        while(count < symbolArray.data.length){
+            let sentimentColor = "goldenrod"
+            if(symbolArray.data[count].sentiment == "Positive"){
+                sentimentColor = "dodgerblue";
+            }
+            else if(symbolArray.data[count].sentiment == "Negative"){
+                sentimentColor = "red";
+            }
             //Create results
             let div = document.createElement("div");
             div.setAttribute('class', "carousel-item active d-flex flex-row spacing");
@@ -148,8 +161,10 @@ function displaySymbol(){
             let appendInfo = document.getElementById(`results-div${count}`);
             appendInfo.append(image);
 
-            let title = document.createElement("h4");
+            let title = document.createElement("a");
             let titleText = symbolArray.data[count].title
+            title.setAttribute('href', symbolArray.data[count].news_url);
+            title.setAttribute('target', '_blank');
             title.setAttribute('id', `results-title${count}`);
             title.setAttribute('style', `color: ${fontColorTitle}; font-size: ${fontSize}`);
             title.innerText = titleText.toString();
@@ -165,7 +180,7 @@ function displaySymbol(){
             let sentiment = document.createElement("h5");
             let sentimentText = symbolArray.data[count].sentiment;
             sentiment.setAttribute('id', `results-sentiment${count}`);
-            sentiment.setAttribute('style', `color: ${fontColor}; font-size: ${fontSize1}`);
+            sentiment.setAttribute('style', `color: ${sentimentColor}; font-size: ${fontSize1}`);
             sentiment.innerText = `Sentiment: ${sentimentText.toString()}`;
             appendInfo.append(sentiment);
 
@@ -183,3 +198,84 @@ function displaySymbol(){
 }
 // -- END resultMenu EventListener Fetch and display
 
+
+// displayTopRaningNews()
+//https://cryptonews-api.com/api/v1/category?section=general&items=50&extra-fields=rankscore&token=
+
+function topRanking(){
+    let topRanking = localStorage.topRanking;
+    // if(localStorage.symbol == undefined || localStorage == null ? "BTC" : localStorage.symbol)
+    let urlTopRanking = `https://cryptonews-api.com/api/v1/category?section=general&items=10&extra-fields=rankscore&sortby=rank&days=3&token=${APIKEY}`;
+
+    fetch(urlTopRanking)
+    .then(apiData3 => apiData3.json())
+    .then(topRankingData => {
+
+        topRankingArray = topRankingData;
+        // console.log(`This is symbolArray`);
+        // console.log(symbolArray.data.length);
+        
+        let fontColorTitle = "";
+        let fontColor = "";
+        let fontSize = "18px";
+        let fontSize1 = "18px";
+        let count = 0;
+
+        while(count < topRankingArray.data.length){
+            let sentimentColor = "goldenrod"
+            if(topRankingArray.data[count].sentiment == "Positive"){
+                sentimentColor = "dodgerblue";
+            }
+            else if(topRankingArray.data[count].sentiment == "Negative"){
+                sentimentColor = "red";
+            }
+            //Create results
+            let div = document.createElement("div");
+            div.setAttribute('class', "carousel-item active d-flex flex-row spacing");
+            div.setAttribute('id', `topranking-div${count}`);
+            let appendDiv = document.getElementById('top-ranking');
+            appendDiv.append(div);
+
+            let image = document.createElement("img");
+            let imageURL = topRankingArray.data[count].image_url;
+            image.setAttribute('src', imageURL);
+            image.setAttribute('class', "d-block justify-center");
+            image.setAttribute('id', `topranking-image${count}`);
+            let appendInfo = document.getElementById(`topranking-div${count}`);
+            appendInfo.append(image);
+
+            let title = document.createElement("a");
+            let titleText = topRankingArray.data[count].title
+            title.setAttribute('href', topRankingArray.data[count].news_url);
+            title.setAttribute('id', `topranking-title${count}`);
+            title.setAttribute('style', `color: ${fontColorTitle}; font-size: ${fontSize}`);
+            title.innerText = titleText.toString();
+            appendInfo.append(title);
+
+            let date = document.createElement("h5");
+            let dateText = topRankingArray.data[count].date;
+            date.setAttribute('id', `topranking-date${count}`);
+            date.setAttribute('style', `color: ${fontColor}; font-size: ${fontSize1}`);
+            date.innerText = dateText.toString();
+            appendInfo.append(date);
+            
+            let sentiment = document.createElement("h5");
+            let sentimentText = topRankingArray.data[count].sentiment;
+            sentiment.setAttribute('id', `topranking-sentiment${count}`);
+            sentiment.setAttribute('style', `color: ${sentimentColor}; font-size: ${fontSize1}`);
+            sentiment.innerText = `Sentiment: ${sentimentText.toString()}`;
+            appendInfo.append(sentiment);
+
+            let source = document.createElement("h5");
+            let sourceText = topRankingArray.data[count].source_name;
+            source.setAttribute('id', `topranking-source${count}`);
+            source.setAttribute('style', `color: ${fontColor}; font-size: ${fontSize1}`);
+            source.innerText = `Source: ${sourceText.toString()}`;
+            appendInfo.append(source);
+
+            count = count + 1;
+            // END Create topranking
+        } 
+    })
+}
+// -- END breakingNews EventListener Fetch and display

@@ -4,7 +4,6 @@ html, body{
 }
 .bg{
     background-image: url("/images/finalbg.jpg");
-
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -175,12 +174,16 @@ h6{
 
 #carouselExampleCaptions{
     margin: auto;
-    height: 50%;
+    height: 60%;
     width: 50%;
     overflow: hidden;
     text-shadow: 2px 2px black;
     /* border: solid 2px black; */
     /* color: red; */
+}
+#carouselExampleCaptions img{
+    border-radius: 15px;
+    
 }
 
 
@@ -212,5 +215,9 @@ h6{
 
 .opacity{
     opacity: .5;
+}
+
+marquee{
+    text-shadow: 1px 1px black;
 }
 
