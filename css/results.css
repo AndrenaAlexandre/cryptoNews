@@ -23,7 +23,7 @@ h5{
     text-shadow: 1px 1px rgba(240, 240, 240, 0.541);
 }
 
-a{
+.results a{
     margin-left: 1%;
     flex-wrap: auto;
     width:50%;
@@ -35,7 +35,7 @@ img{
     width:13%;
 }
 
-h4:hover{
+a:hover{
     /* background-color: rgba(0, 255, 85, 0.123); */
     text-decoration: underline;
     color: black;
