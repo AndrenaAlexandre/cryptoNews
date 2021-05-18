@@ -3,7 +3,7 @@ html, body{
     font-family: 'Calibri';
 }
 .bg{
-    background-image: url("/cryptoNews/images/finalbg.jpg");
+    background-image: url("/images/finalbg.jpg");
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -131,7 +131,7 @@ h6{
   }
 
 .parallax{
-    background-image: url("/cryptoNews/images/parrallax.jpg");
+    background-image: url("/images/parrallax.jpg");
     height: 100%;
     background-attachment: fixed;   
     background-position: center;
@@ -180,3 +180,4 @@ h6{
 .opacity{
     opacity: .5;
 }
+
