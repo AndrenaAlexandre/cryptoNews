@@ -38,9 +38,10 @@ img{
 h4:hover{
     /* background-color: rgba(0, 255, 85, 0.123); */
     text-decoration: underline;
-    color: #ffc8009f;
-    text-shadow: 1px 1px rgb(0, 0, 0);
+    color: black;
+    text-shadow: 1px 1px #ffc8009f;
     border-radius: 10px;
+    font-weight: bold;
 }
 
 .results{
