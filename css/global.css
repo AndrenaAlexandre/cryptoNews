@@ -4,6 +4,7 @@ html, body{
 }
 .bg{
     background-image: url("/images/finalbg.jpg");
+
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -11,6 +12,7 @@ html, body{
 }
 .aboutBg{
     background-image: url("/images/inverse.jpg");
+
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -169,6 +171,8 @@ h6{
     margin: auto;
     height: 50%;
     width: 50%;
+    overflow: hidden;
+    text-shadow: 2px 2px black;
     /* border: solid 2px black; */
     /* color: red; */
 }
@@ -179,10 +183,9 @@ h6{
     margin-right: 15%;
     height: 20%;
     margin-bottom: 3%;
-    background-color: #1513715d;
+    /* background-color: #1513715d; */
     border-radius: 10px;
     overflow-wrap: normal;
-    color: red;
     font-size: 45%;
 }
 
@@ -193,3 +196,4 @@ h6{
 .opacity{
     opacity: .5;
 }
+
