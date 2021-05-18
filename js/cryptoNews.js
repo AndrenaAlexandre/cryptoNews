@@ -126,10 +126,10 @@ function displaySymbol(){
         // console.log(`This is symbolArray`);
         // console.log(symbolArray.data.length);
         
-        let fontColorTitle = "black";
-        let fontColor = "black";
-        let fontSize = "20px";
-        let fontSize1 = "20px";
+        let fontColorTitle = "";
+        let fontColor = "";
+        let fontSize = "18px";
+        let fontSize1 = "18px";
         let count = 0;
 
         while(count < 4){
