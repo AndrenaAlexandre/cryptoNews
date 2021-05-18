@@ -271,4 +271,4 @@ function topRanking(){
         return false
     })
 }
--- END breakingNews EventListener Fetch and display
+// -- END breakingNews EventListener Fetch and display
