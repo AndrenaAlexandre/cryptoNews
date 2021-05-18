@@ -130,10 +130,10 @@ function displaySymbol(){
         // console.log(`This is symbolArray`);
         // console.log(symbolArray.data.length);
         
-        let fontColorTitle = "black";
-        let fontColor = "black";
-        let fontSize = "20px";
-        let fontSize1 = "20px";
+        let fontColorTitle = "";
+        let fontColor = "";
+        let fontSize = "18px";
+        let fontSize1 = "18px";
         let count = 0;
 
         while(count < 4){
@@ -147,7 +147,7 @@ function displaySymbol(){
             let image = document.createElement("img");
             let imageURL = symbolArray.data[count].image_url;
             image.setAttribute('src', imageURL);
-            image.setAttribute('class', "d-block w-25 justify-center");
+            image.setAttribute('class', "d-block justify-center");
             image.setAttribute('id', `results-image${count}`);
             let appendInfo = document.getElementById(`results-div${count}`);
             appendInfo.append(image);
