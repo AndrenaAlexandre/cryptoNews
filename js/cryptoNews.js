@@ -70,6 +70,7 @@ function displayBreakingNews(){
             let title = document.createElement("a");
             let titleText = breakingNewsArray.data[count].title
             title.setAttribute('href', breakingNewsArray.data[count].news_url);
+            title.setAttribute('target', '_blank');
             title.setAttribute('id', `news-title${count}`);
             title.setAttribute('style', `color: ${fontColorTitle}; font-size: ${fontSize}`);
             title.innerText = titleText.toString();
@@ -163,6 +164,7 @@ function displaySymbol(){
             let title = document.createElement("a");
             let titleText = symbolArray.data[count].title
             title.setAttribute('href', symbolArray.data[count].news_url);
+            title.setAttribute('target', '_blank');
             title.setAttribute('id', `results-title${count}`);
             title.setAttribute('style', `color: ${fontColorTitle}; font-size: ${fontSize}`);
             title.innerText = titleText.toString();
