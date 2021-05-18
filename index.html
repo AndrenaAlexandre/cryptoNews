@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/footer.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 </head>
-<body onload="displayBreakingNews()">
+<body onload="onLoad()">
     <!-- /* this is the div that holds the background image*/  -->
     <div class="container-* bg" id="background">
         <div class="ticker position-relative" id="ticker">
@@ -89,21 +89,18 @@
       </div>
 <!-- END Breaking News Carousel -->
         <div class="blankRow2" id="blank spacing"></div> <!--Dont delete this blank div. It is for spacing-->
-        <div class="container secondRow" id="secondRow">
-            <h3>Top Mentioned Crypto</h3>
-            <h6>Read More</h6>
+        
+        <div class="results d-flex flex-column bd-highlight" style="overflow: scroll" id ="top-ranking">
+          <!-- this is where news are displayed with js topRanking() -->
         </div>
-        <div class="container thirdRow" id="thirdRow">
-            <h3>Top Mentioned Crypto</h3>
-            <h6>Read More</h6>
-        </div>
-        <div class="container thirdRow" id="thirdRow">
+        
+        <!-- <div class="container thirdRow" id="thirdRow">
           <h3>Top Mentioned Crypto</h3>
           <h6>Read More</h6>
       </div>
       <div class="container thirdRow" id="thirdRow">
         <h3>Top Mentioned Crypto</h3>
-        <h6>Read More</h6>
+        <h6>Read More</h6> -->
     </div>
     <div class="container blankRow" id="blankRow">
     </div>
