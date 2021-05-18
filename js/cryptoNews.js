@@ -132,7 +132,7 @@ function displaySymbol(){
         let fontSize1 = "18px";
         let count = 0;
 
-        while(count < 50){
+        while(count < symbolArray.data.length){
             let sentimentColor = "goldenrod"
             if(symbolArray.data[count].sentiment == "Positive"){
                 sentimentColor = "dodgerblue";
