@@ -8,6 +8,16 @@
     color:#ffffff;
   }
   
+  .abNavbar{
+    background-color: #1513715d;
+    /* background-color: rgb(0, 0, 0); this is for a solid black navbar*/
+    /* overflow: hidden; */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color:#ffffff;
+  }
+
   /* Style the links inside the navigation bar */
 .navbar a {
     float: left;

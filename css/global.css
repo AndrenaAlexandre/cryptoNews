@@ -3,13 +3,27 @@ html, body{
     font-family: 'Calibri';
 }
 .bg{
-    background-image: url("/cryptoNews/images/finalbg.jpg");
+    background-image: url("/images/finalbg.jpg");
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
+.aboutBg{
+    background-image: url("/images/inverse.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.aboutFont{
+    color: white;
+}
 
+.about{
+    text-align: center;
+    font-size: 25px;
+}
 
 .newsScroll{
     font-family: Calibri;
@@ -125,13 +139,13 @@ h6{
     position: fixed;
     top: 0;
     width: 100%;
-  }
+}
 .sticky + .content {
     padding-top: 60px;
-  }
+}
 
 .parallax{
-    background-image: url("/cryptoNews/images/parrallax.jpg");
+    background-image: url("/images/parrallax.jpg");
     height: 100%;
     background-attachment: fixed;   
     background-position: center;
@@ -168,7 +182,7 @@ h6{
     background-color: #1513715d;
     border-radius: 10px;
     overflow-wrap: normal;
-    color: red
+    color: red;
     font-size: 45%;
 }
 
