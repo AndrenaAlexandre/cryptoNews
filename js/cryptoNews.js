@@ -132,7 +132,7 @@ function displaySymbol(){
         let fontSize1 = "18px";
         let count = 0;
 
-        while(count < 4){
+        while(count < 50){
             //Create results
             let div = document.createElement("div");
             div.setAttribute('class', "carousel-item active d-flex flex-row spacing");
@@ -184,7 +184,7 @@ function displaySymbol(){
 // -- END resultMenu EventListener Fetch and display
 
 
-displayBreakingNews()
+// displayTopRaningNews()
 
 
 function topRanking(){
@@ -271,4 +271,4 @@ function topRanking(){
         return false
     })
 }
-// -- END breakingNews EventListener Fetch and display
+-- END breakingNews EventListener Fetch and display
