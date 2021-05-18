@@ -11,15 +11,14 @@ html, body{
     background-size: cover;
 }
 .aboutBg{
-    background-image: url("/images/inverse.jpg");
-
+    background-color: white;
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 .aboutFont{
-    color: white;
+    color: rgb(2, 2, 2);
 }
 
 .about{

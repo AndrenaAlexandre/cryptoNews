@@ -19,7 +19,7 @@ function displayBreakingNews(){
         let fontSize1 = "20px";
         
         let count = 0;
-        while(count < 10){
+        while(count < 15){
             let sentimentColor = "white"
             if(breakingNewsArray.data[count].sentiment == "Positive"){
                 sentimentColor = "dodgerblue";
@@ -62,8 +62,9 @@ function displayBreakingNews(){
             div1.setAttribute('id', `caption-div${count}`);
             appendInfo.append(div1);
 
-            let title = document.createElement("h5");
+            let title = document.createElement("a");
             let titleText = breakingNewsArray.data[count].title
+            div1.setAttribute('href', breakingNewsArray.data[count].news_url);
             title.setAttribute('id', `news-title${count}`);
             title.setAttribute('style', `color: ${fontColorTitle}; font-size: ${fontSize}`);
             title.innerText = titleText.toString();
@@ -108,11 +109,6 @@ newsMenu.addEventListener("click", e => {
         localStorage.symbol = e.target.id; 
         window.location.href = "results.html"
     }
-
-    // urlSymbol = `https://cryptonews-api.com/api/v1?tickers=${symbol}&items=50&token=${APIKEY}`;
-    // console.log(`This is symbol in Event Listener: ${symbol}`);
-    // // window.open("/cryptoNews/results.html")
-    // displaySymbol(symbol);
 })
 
 
