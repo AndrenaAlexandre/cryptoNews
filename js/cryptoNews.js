@@ -8,13 +8,16 @@ var positiveSentimentArray = [];
 var negativeSentimentArray = [];
 var videoNewsArray = [];
 
+// onLoad() for Index.html on-page-load execution
 function onLoad(){
     displayBreakingNews();
     topRanking();
     positiveSentiment();
     negativeSentiment();
 }
+// -- End OnLoad()
 
+// -- Begin displayBreakingNews()
 function displayBreakingNews(){
     let breakingNewsURL = `https://cryptonews-api.com/api/v1/category?section=general&items=50&token=${APIKEY}`
     fetch(breakingNewsURL)
@@ -22,7 +25,6 @@ function displayBreakingNews(){
     .then(breakingNewsData => {
         
         breakingNewsArray = breakingNewsData;
-        // window.open("/cryptoNews/results.html",`_news`)
         let fontColorTitle = "white";
         let fontColor = "goldenrod";
         let fontSize = "25px";
@@ -109,9 +111,9 @@ function displayBreakingNews(){
         return false
     })
 }
-// -- END breakingNews EventListener Fetch and display
+// -- END displayBreakingNews()
 
-// --newsMenu EventListener Fetch and display
+// -- Begin displaySymbol()
 const newsMenu = document.querySelector('.dropdown-menu');
 const sentimentMenu = document.querySelector('.sentiment-menu');
 newsMenu.addEventListener("click", e => {
@@ -132,9 +134,6 @@ function displaySymbol(){
     .then(symbolData => {
 
         symbolArray = symbolData;
-        // console.log(`This is symbolArray`);
-        // console.log(symbolArray.data.length);
-        
         let fontColorTitle = "";
         let fontColor = "";
         let fontSize = "18px";
@@ -149,7 +148,7 @@ function displaySymbol(){
             else if(symbolArray.data[count].sentiment == "Negative"){
                 sentimentColor = "red";
             }
-            //Create results
+            //Begin results
             let div = document.createElement("div");
             div.setAttribute('class', "carousel-item active d-flex flex-row spacing");
             div.setAttribute('id', `results-div${count}`);
@@ -195,13 +194,13 @@ function displaySymbol(){
             appendInfo.append(source);
 
             count = count + 1;
-            // END Create results
+            // END results
         } 
     })
 }
-// -- END newsMenu EventListener Fetch and display
+// -- END displaySymbol()
 
-// -- topRanking Fetch and display
+// -- Begin topRanking()
 function topRanking(){
     let urlTopRanking = `https://cryptonews-api.com/api/v1/category?section=general&items=10&extra-fields=rankscore&sortby=rank&days=3&token=${APIKEY}`;
 
@@ -274,7 +273,9 @@ function topRanking(){
         } 
     })
 }
+// -- END topRanking()
 
+// -- Begin positiveSentiment()
 function positiveSentiment(){
     let urlpositiveSentiment = `https://cryptonews-api.com/api/v1/category?section=general&items=10&extra-fields=rankscore&sortby=rank&sentiment=positive&token=${APIKEY}`;
 
@@ -290,7 +291,7 @@ function positiveSentiment(){
         let count = 0;
 
         while(count < positiveSentimentArray.data.length){
-            //Create results
+            //Create positiveSentiment
             let div = document.createElement("div");
             div.setAttribute('class', "carousel-item active d-flex flex-row spacing");
             div.setAttribute('id', `positvesentiment-div${count}`);
@@ -329,11 +330,13 @@ function positiveSentiment(){
             appendInfo.append(source);
 
             count = count + 1;
-            // END Create topranking
+            // END Create positiveSentiment
         } 
     })
 }
+// -- END positiveSentiment()
 
+// -- Begin negativeSentiment()
 function negativeSentiment(){
     let urlnegativeSentiment = `https://cryptonews-api.com/api/v1/category?section=general&items=10&extra-fields=rankscore&sortby=rank&sentiment=negative&token=${APIKEY}`;
 
@@ -349,7 +352,7 @@ function negativeSentiment(){
         let count = 0;
 
         while(count < negativeSentimentArray.data.length){
-            //Create results
+            //Create negativeSentiment
             let div = document.createElement("div");
             div.setAttribute('class', "carousel-item active d-flex flex-row spacing");
             div.setAttribute('id', `negativesentiment-div${count}`);
@@ -388,11 +391,13 @@ function negativeSentiment(){
             appendInfo.append(source);
 
             count = count + 1;
-            // END Create topranking
+            // END Create negativeSentiment
         } 
     })
 }
+// -- END negativeSentiment()
 
+// -- Begin displayVideo()
 function displayVideo(){
     
     // let symbol = localStorage.symbol;
@@ -404,9 +409,6 @@ function displayVideo(){
     .then(videoData => {
 
         videoNewsArray = videoData;
-        // console.log(`This is symbolArray`);
-        // console.log(symbolArray.data.length);
-        
         let fontColorTitle = "";
         let fontColor = "";
         let fontSize = "18px";
@@ -428,18 +430,16 @@ function displayVideo(){
             let appendDiv = document.getElementById('video-results');
             appendDiv.append(div);
 
-            // let image = document.createElement("img");
-            // let imageURL = videoNewsArray.data[count].image_url;
-            // image.setAttribute('src', imageURL);
-            // image.setAttribute('class', "d-block justify-center");
-            // image.setAttribute('id', `video-image${count}`);
             let appendInfo = document.getElementById(`video-div${count}`);
-            // appendInfo.append(image);
 
-            let title = document.createElement("iframe");
+            let iframe = document.createElement("iframe");
+            iframe.setAttribute('src', videoNewsArray.data[count].news_url);
+            iframe.setAttribute('id', `video-iframe${count}`);
+            iframe.setAttribute('style', `color: ${fontColorTitle}; font-size: ${fontSize}`);
+            appendInfo.append(iframe);
+
+            let title = document.createElement("h5");
             let titleText = videoNewsArray.data[count].title
-            title.setAttribute('src', videoNewsArray.data[count].news_url);
-            // title.setAttribute('target', '_blank');
             title.setAttribute('id', `video-title${count}`);
             title.setAttribute('style', `color: ${fontColorTitle}; font-size: ${fontSize}`);
             title.innerText = titleText.toString();
@@ -471,4 +471,4 @@ function displayVideo(){
         } 
     })
 }
-// -- END resultMenu EventListener Fetch and display
+// -- END displayVideo()
