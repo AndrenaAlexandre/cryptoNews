@@ -1,5 +1,5 @@
 .navbar {
-    background-color: rgba(0, 255, 85, 0.171);
+    background-color: #1513715d;
     /* background-color: rgb(0, 0, 0); this is for a solid black navbar*/
     /* overflow: hidden; */
     position: fixed;
@@ -7,7 +7,14 @@
     width: 100%;
     color:#ffffff;
   }
-
+  
+  /* .abNavbar{
+    background-color: #1513715d;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color:#ffffff;
+  } */
 
   /* Style the links inside the navigation bar */
 .navbar a {
@@ -44,4 +51,3 @@
     text-align: left;
     color:#ffc700;
 }
-
