@@ -392,19 +392,6 @@ function negativeSentiment(){
         } 
     })
 }
-// -- END breakingNews EventListener Fetch and display
-
-// --newsMenu EventListener Fetch and display
-// const newsMenu = document.querySelector('.dropdown-menu');
-// const sentimentMenu = document.querySelector('.sentiment-menu');
-// newsMenu.addEventListener("click", e => {
-//     e.preventDefault();
-//     if(e.target.id === "BTC" || e.target.id === "ETH" || e.target.id ==="XRP"){
-//         localStorage.symbol = e.target.id; 
-//         window.location.href = "results.html"
-//     }
-// })
-
 
 function displayVideo(){
     
