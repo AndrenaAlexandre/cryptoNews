@@ -23,13 +23,13 @@ h5{
     text-shadow: 1px 1px rgba(240, 240, 240, 0.541);
 }
 
-a{
+/* a{
     margin-left: 1%;
     flex-wrap: auto;
     width:50%;
     text-shadow: 1px 1px rgba(255, 255, 255, 0.596);
     color: black;
-}
+} */
 
 img{
     width:13%;

@@ -9,21 +9,6 @@ html, body{
     background-repeat: no-repeat;
     background-size: cover;
 }
-.aboutBg{
-    background-color: white;
-    height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.aboutFont{
-    color: rgb(2, 2, 2);
-}
-
-.about{
-    text-align: center;
-    font-size: 25px;
-}
 
 .newsScroll{
     font-family: Calibri;
