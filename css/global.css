@@ -67,12 +67,11 @@ background-color: #1513715d;
     }
 }
 .blankRow{
-    height: 10%;
-    margin-bottom: 3%;
+    margin-bottom: 4%;
 }
 
 .blankRow2{
-    height: 3%;
+    height: 6%;
 }
 
 .blankRow3{
@@ -106,10 +105,11 @@ background-color: #1513715d;
     border: solid 2px #fa29f68a;
     margin-left: 15%;
     margin-right: 15%;
-    height: 20%;
+    height: 70%;
     margin-bottom: 3%;
-    background-color: #1513715d;
+    background-color: #15137128;
     border-radius: 10px;
+    overflow: scroll;
 }
 
 h3{
@@ -206,3 +206,58 @@ marquee{
     text-shadow: 1px 1px black;
 }
 
+.scrollBox{
+    /* border: solid 2px #fa29f68a; */
+    margin-left: 9%;
+    margin-right: 9%;
+    height: 50%;
+    margin-bottom: 2%;
+    /* background-color: #1513715d; */
+    border-radius: 10px;
+    overflow-wrap: normal;
+    font-size: 45%;
+    background-color: rgba(255, 255, 255, 0.753);
+    padding-top: 1%;
+    overflow: scroll
+}
+
+.scrollBox a{
+    margin-left: 1%;
+    flex-wrap: auto;
+    width:50%;
+    text-shadow: 1px 1px rgba(255, 255, 255, 0.596);
+    color: black;
+    text-decoration: none;
+    
+}
+
+.scrollBox a:link{
+    text-decoration: none;
+    color:black;
+    text-shadow: 1px 1px #ffc8009f;
+
+}
+
+.scrollBox img{
+    width:15%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+
+}
+
+.scrollBox a:hover{
+    /* background-color: rgba(0, 255, 85, 0.123); */
+    text-decoration: underline;
+    color: black;
+    text-shadow: 1px 1px #ffc8009f;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.scrollBox h5{
+    margin-left: 1%;
+    flex-wrap: auto;
+    width:50%;
+    text-align: center;
+    text-shadow: 1px 1px rgba(240, 240, 240, 0.541);
+}
