@@ -48,6 +48,10 @@
 
 * Screenshots of your app
 
+- planning phase for site layout 
+![](images/abstractbackground.jpg')
+
+![]()
 * Developer team
     * Name with link to github
     * Primary team role
