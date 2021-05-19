@@ -121,8 +121,6 @@ newsMenu.addEventListener("click", e => {
         window.location.href = "results.html"
     }
 })
-
-
 function displaySymbol(){
     
     let symbol = localStorage.symbol;
@@ -201,9 +199,9 @@ function displaySymbol(){
         } 
     })
 }
-// -- END resultMenu EventListener Fetch and display
+// -- END newsMenu EventListener Fetch and display
 
-
+// -- topRanking Fetch and display
 function topRanking(){
     let urlTopRanking = `https://cryptonews-api.com/api/v1/category?section=general&items=10&extra-fields=rankscore&sortby=rank&days=3&token=${APIKEY}`;
 
