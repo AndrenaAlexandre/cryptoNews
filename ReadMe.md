@@ -48,8 +48,8 @@
 
 * Screenshots of your app
 
-- planning phase for site layout 
-![](images/abstractbackground.jpg')
+* planning phase for site layout 
+* ![](images/abstractbackground.jpg')
 
 ![]()
 * Developer team
