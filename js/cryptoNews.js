@@ -6,12 +6,13 @@ var breakingNewsArray = [];
 var sentimentAnalysis = [];
 var positiveSentimentArray = [];
 var negativeSentimentArray = [];
+var videoNewsArray = [];
 
 function onLoad(){
     displayBreakingNews();
     topRanking();
-    // positiveSentiment();
-    // negativeSentiment();
+    positiveSentiment();
+    negativeSentiment();
 }
 
 function displayBreakingNews(){
@@ -295,7 +296,7 @@ function positiveSentiment(){
             let div = document.createElement("div");
             div.setAttribute('class', "carousel-item active d-flex flex-row spacing");
             div.setAttribute('id', `positvesentiment-div${count}`);
-            let appendDiv = document.getElementById('positive-sentiment');
+            let appendDiv = document.getElementById('positiveSentiment');
             appendDiv.append(div);
 
             let image = document.createElement("img");
@@ -354,7 +355,7 @@ function negativeSentiment(){
             let div = document.createElement("div");
             div.setAttribute('class', "carousel-item active d-flex flex-row spacing");
             div.setAttribute('id', `negativesentiment-div${count}`);
-            let appendDiv = document.getElementById('negative-sentiment');
+            let appendDiv = document.getElementById('negativeSentiment');
             appendDiv.append(div);
 
             let image = document.createElement("img");
@@ -394,3 +395,95 @@ function negativeSentiment(){
     })
 }
 // -- END breakingNews EventListener Fetch and display
+
+// --newsMenu EventListener Fetch and display
+// const newsMenu = document.querySelector('.dropdown-menu');
+// const sentimentMenu = document.querySelector('.sentiment-menu');
+// newsMenu.addEventListener("click", e => {
+//     e.preventDefault();
+//     if(e.target.id === "BTC" || e.target.id === "ETH" || e.target.id ==="XRP"){
+//         localStorage.symbol = e.target.id; 
+//         window.location.href = "results.html"
+//     }
+// })
+
+
+function displayVideo(){
+    
+    // let symbol = localStorage.symbol;
+    // if(localStorage.symbol == undefined || localStorage == null ? "BTC" : localStorage.symbol)
+    let urlVideo = `https://cryptonews-api.com/api/v1/category?section=general&items=10&extra-fields=rankscore&sortby=rank&type=video&token=${APIKEY}`;
+
+    fetch(urlVideo)
+    .then(apiData6 => apiData6.json())
+    .then(videoData => {
+
+        videoNewsArray = videoData;
+        // console.log(`This is symbolArray`);
+        // console.log(symbolArray.data.length);
+        
+        let fontColorTitle = "";
+        let fontColor = "";
+        let fontSize = "18px";
+        let fontSize1 = "18px";
+        let count = 0;
+
+        while(count < videoNewsArray.data.length){
+            let sentimentColor = "goldenrod"
+            if(videoNewsArray.data[count].sentiment == "Positive"){
+                sentimentColor = "dodgerblue";
+            }
+            else if(videoNewsArray.data[count].sentiment == "Negative"){
+                sentimentColor = "red";
+            }
+            //Create results
+            let div = document.createElement("div");
+            div.setAttribute('class', "carousel-item active d-flex flex-row spacing");
+            div.setAttribute('id', `video-div${count}`);
+            let appendDiv = document.getElementById('video-results');
+            appendDiv.append(div);
+
+            // let image = document.createElement("img");
+            // let imageURL = videoNewsArray.data[count].image_url;
+            // image.setAttribute('src', imageURL);
+            // image.setAttribute('class', "d-block justify-center");
+            // image.setAttribute('id', `video-image${count}`);
+            let appendInfo = document.getElementById(`video-div${count}`);
+            // appendInfo.append(image);
+
+            let title = document.createElement("iframe");
+            let titleText = videoNewsArray.data[count].title
+            title.setAttribute('src', videoNewsArray.data[count].news_url);
+            // title.setAttribute('target', '_blank');
+            title.setAttribute('id', `video-title${count}`);
+            title.setAttribute('style', `color: ${fontColorTitle}; font-size: ${fontSize}`);
+            title.innerText = titleText.toString();
+            appendInfo.append(title);
+
+            let date = document.createElement("h5");
+            let dateText = videoNewsArray.data[count].date;
+            date.setAttribute('id', `video-date${count}`);
+            date.setAttribute('style', `color: ${fontColor}; font-size: ${fontSize1}`);
+            date.innerText = dateText.toString();
+            appendInfo.append(date);
+            
+            let sentiment = document.createElement("h5");
+            let sentimentText = videoNewsArray.data[count].sentiment;
+            sentiment.setAttribute('id', `video-sentiment${count}`);
+            sentiment.setAttribute('style', `color: ${sentimentColor}; font-size: ${fontSize1}`);
+            sentiment.innerText = `Sentiment: ${sentimentText.toString()}`;
+            appendInfo.append(sentiment);
+
+            let source = document.createElement("h5");
+            let sourceText = videoNewsArray.data[count].source_name;
+            source.setAttribute('id', `video-source${count}`);
+            source.setAttribute('style', `color: ${fontColor}; font-size: ${fontSize1}`);
+            source.innerText = `Source: ${sourceText.toString()}`;
+            appendInfo.append(source);
+
+            count = count + 1;
+            // END Create video-results
+        } 
+    })
+}
+// -- END resultMenu EventListener Fetch and display
