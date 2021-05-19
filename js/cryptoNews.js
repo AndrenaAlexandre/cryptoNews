@@ -116,8 +116,6 @@ newsMenu.addEventListener("click", e => {
         window.location.href = "results.html"
     }
 })
-
-
 function displaySymbol(){
     
     let symbol = localStorage.symbol;
@@ -196,12 +194,9 @@ function displaySymbol(){
         } 
     })
 }
-// -- END resultMenu EventListener Fetch and display
+// -- END newsMenu EventListener Fetch and display
 
-
-// displayTopRaningNews()
-//https://cryptonews-api.com/api/v1/category?section=general&items=50&extra-fields=rankscore&token=
-
+// -- topRanking Fetch and display
 function topRanking(){
     let topRanking = localStorage.topRanking;
     // if(localStorage.symbol == undefined || localStorage == null ? "BTC" : localStorage.symbol)
@@ -278,4 +273,4 @@ function topRanking(){
         } 
     })
 }
-// -- END breakingNews EventListener Fetch and display
+// -- topRanking Fetch and display
