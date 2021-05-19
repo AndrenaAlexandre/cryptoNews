@@ -4,10 +4,15 @@ var symbolArray = [];
 var topRankingNews = [];
 var breakingNewsArray = [];
 var sentimentAnalysis = [];
+var positiveSentimentArray = [];
+var negativeSentimentArray = [];
+var videoNewsArray = [];
 
 function onLoad(){
     displayBreakingNews();
     topRanking();
+    positiveSentiment();
+    negativeSentiment();
 }
 
 function displayBreakingNews(){
@@ -198,8 +203,6 @@ function displaySymbol(){
 
 // -- topRanking Fetch and display
 function topRanking(){
-    let topRanking = localStorage.topRanking;
-    // if(localStorage.symbol == undefined || localStorage == null ? "BTC" : localStorage.symbol)
     let urlTopRanking = `https://cryptonews-api.com/api/v1/category?section=general&items=10&extra-fields=rankscore&sortby=rank&days=3&token=${APIKEY}`;
 
     fetch(urlTopRanking)
@@ -207,9 +210,6 @@ function topRanking(){
     .then(topRankingData => {
 
         topRankingArray = topRankingData;
-        // console.log(`This is symbolArray`);
-        // console.log(symbolArray.data.length);
-        
         let fontColorTitle = "";
         let fontColor = "";
         let fontSize = "18px";
@@ -242,6 +242,7 @@ function topRanking(){
             let title = document.createElement("a");
             let titleText = topRankingArray.data[count].title
             title.setAttribute('href', topRankingArray.data[count].news_url);
+            title.setAttribute('target', '_blank');
             title.setAttribute('id', `topranking-title${count}`);
             title.setAttribute('style', `color: ${fontColorTitle}; font-size: ${fontSize}`);
             title.innerText = titleText.toString();
@@ -273,4 +274,201 @@ function topRanking(){
         } 
     })
 }
-// -- topRanking Fetch and display
+
+function positiveSentiment(){
+    let urlpositiveSentiment = `https://cryptonews-api.com/api/v1/category?section=general&items=10&extra-fields=rankscore&sortby=rank&sentiment=positive&token=${APIKEY}`;
+
+    fetch(urlpositiveSentiment)
+    .then(apiData4 => apiData4.json())
+    .then(positiveSentimentData => {
+
+        positiveSentimentArray = positiveSentimentData;
+        let fontColorTitle = "";
+        let fontColor = "";
+        let fontSize = "18px";
+        let fontSize1 = "18px";
+        let count = 0;
+
+        while(count < positiveSentimentArray.data.length){
+            //Create results
+            let div = document.createElement("div");
+            div.setAttribute('class', "carousel-item active d-flex flex-row spacing");
+            div.setAttribute('id', `positvesentiment-div${count}`);
+            let appendDiv = document.getElementById('positiveSentiment');
+            appendDiv.append(div);
+
+            let image = document.createElement("img");
+            let imageURL = positiveSentimentArray.data[count].image_url;
+            image.setAttribute('src', imageURL);
+            image.setAttribute('class', "d-block justify-center");
+            image.setAttribute('id', `positvesentiment-image${count}`);
+            let appendInfo = document.getElementById(`positvesentiment-div${count}`);
+            appendInfo.append(image);
+
+            let title = document.createElement("a");
+            let titleText = positiveSentimentArray.data[count].title
+            title.setAttribute('href', positiveSentimentArray.data[count].news_url);
+            title.setAttribute('target', '_blank');
+            title.setAttribute('id', `positvesentiment-title${count}`);
+            title.setAttribute('style', `color: ${fontColorTitle}; font-size: ${fontSize}`);
+            title.innerText = titleText.toString();
+            appendInfo.append(title);
+
+            let date = document.createElement("h5");
+            let dateText = positiveSentimentArray.data[count].date;
+            date.setAttribute('id', `positvesentiment-date${count}`);
+            date.setAttribute('style', `color: ${fontColor}; font-size: ${fontSize1}`);
+            date.innerText = dateText.toString();
+            appendInfo.append(date);
+
+            let source = document.createElement("h5");
+            let sourceText = positiveSentimentArray.data[count].source_name;
+            source.setAttribute('id', `positvesentiment-source${count}`);
+            source.setAttribute('style', `color: ${fontColor}; font-size: ${fontSize1}`);
+            source.innerText = `Source: ${sourceText.toString()}`;
+            appendInfo.append(source);
+
+            count = count + 1;
+            // END Create topranking
+        } 
+    })
+}
+
+function negativeSentiment(){
+    let urlnegativeSentiment = `https://cryptonews-api.com/api/v1/category?section=general&items=10&extra-fields=rankscore&sortby=rank&sentiment=negative&token=${APIKEY}`;
+
+    fetch(urlnegativeSentiment)
+    .then(apiData5 => apiData5.json())
+    .then(negativeSentimentData => {
+
+        negativeSentimentArray = negativeSentimentData;
+        let fontColorTitle = "";
+        let fontColor = "";
+        let fontSize = "18px";
+        let fontSize1 = "18px";
+        let count = 0;
+
+        while(count < negativeSentimentArray.data.length){
+            //Create results
+            let div = document.createElement("div");
+            div.setAttribute('class', "carousel-item active d-flex flex-row spacing");
+            div.setAttribute('id', `negativesentiment-div${count}`);
+            let appendDiv = document.getElementById('negativeSentiment');
+            appendDiv.append(div);
+
+            let image = document.createElement("img");
+            let imageURL = negativeSentimentArray.data[count].image_url;
+            image.setAttribute('src', imageURL);
+            image.setAttribute('class', "d-block justify-center");
+            image.setAttribute('id', `negativesentiment-image${count}`);
+            let appendInfo = document.getElementById(`negativesentiment-div${count}`);
+            appendInfo.append(image);
+
+            let title = document.createElement("a");
+            let titleText = negativeSentimentArray.data[count].title
+            title.setAttribute('href', negativeSentimentArray.data[count].news_url);
+            title.setAttribute('target', '_blank');
+            title.setAttribute('id', `negativesentiment-title${count}`);
+            title.setAttribute('style', `color: ${fontColorTitle}; font-size: ${fontSize}`);
+            title.innerText = titleText.toString();
+            appendInfo.append(title);
+
+            let date = document.createElement("h5");
+            let dateText = negativeSentimentArray.data[count].date;
+            date.setAttribute('id', `negativesentiment-date${count}`);
+            date.setAttribute('style', `color: ${fontColor}; font-size: ${fontSize1}`);
+            date.innerText = dateText.toString();
+            appendInfo.append(date);
+            
+            let source = document.createElement("h5");
+            let sourceText = negativeSentimentArray.data[count].source_name;
+            source.setAttribute('id', `negativesentiment-source${count}`);
+            source.setAttribute('style', `color: ${fontColor}; font-size: ${fontSize1}`);
+            source.innerText = `Source: ${sourceText.toString()}`;
+            appendInfo.append(source);
+
+            count = count + 1;
+            // END Create topranking
+        } 
+    })
+}
+
+function displayVideo(){
+    
+    // let symbol = localStorage.symbol;
+    // if(localStorage.symbol == undefined || localStorage == null ? "BTC" : localStorage.symbol)
+    let urlVideo = `https://cryptonews-api.com/api/v1/category?section=general&items=10&extra-fields=rankscore&sortby=rank&type=video&token=${APIKEY}`;
+
+    fetch(urlVideo)
+    .then(apiData6 => apiData6.json())
+    .then(videoData => {
+
+        videoNewsArray = videoData;
+        // console.log(`This is symbolArray`);
+        // console.log(symbolArray.data.length);
+        
+        let fontColorTitle = "";
+        let fontColor = "";
+        let fontSize = "18px";
+        let fontSize1 = "18px";
+        let count = 0;
+
+        while(count < videoNewsArray.data.length){
+            let sentimentColor = "goldenrod"
+            if(videoNewsArray.data[count].sentiment == "Positive"){
+                sentimentColor = "dodgerblue";
+            }
+            else if(videoNewsArray.data[count].sentiment == "Negative"){
+                sentimentColor = "red";
+            }
+            //Create results
+            let div = document.createElement("div");
+            div.setAttribute('class', "carousel-item active d-flex flex-row spacing");
+            div.setAttribute('id', `video-div${count}`);
+            let appendDiv = document.getElementById('video-results');
+            appendDiv.append(div);
+
+            // let image = document.createElement("img");
+            // let imageURL = videoNewsArray.data[count].image_url;
+            // image.setAttribute('src', imageURL);
+            // image.setAttribute('class', "d-block justify-center");
+            // image.setAttribute('id', `video-image${count}`);
+            let appendInfo = document.getElementById(`video-div${count}`);
+            // appendInfo.append(image);
+
+            let title = document.createElement("iframe");
+            let titleText = videoNewsArray.data[count].title
+            title.setAttribute('src', videoNewsArray.data[count].news_url);
+            // title.setAttribute('target', '_blank');
+            title.setAttribute('id', `video-title${count}`);
+            title.setAttribute('style', `color: ${fontColorTitle}; font-size: ${fontSize}`);
+            title.innerText = titleText.toString();
+            appendInfo.append(title);
+
+            let date = document.createElement("h5");
+            let dateText = videoNewsArray.data[count].date;
+            date.setAttribute('id', `video-date${count}`);
+            date.setAttribute('style', `color: ${fontColor}; font-size: ${fontSize1}`);
+            date.innerText = dateText.toString();
+            appendInfo.append(date);
+            
+            let sentiment = document.createElement("h5");
+            let sentimentText = videoNewsArray.data[count].sentiment;
+            sentiment.setAttribute('id', `video-sentiment${count}`);
+            sentiment.setAttribute('style', `color: ${sentimentColor}; font-size: ${fontSize1}`);
+            sentiment.innerText = `Sentiment: ${sentimentText.toString()}`;
+            appendInfo.append(sentiment);
+
+            let source = document.createElement("h5");
+            let sourceText = videoNewsArray.data[count].source_name;
+            source.setAttribute('id', `video-source${count}`);
+            source.setAttribute('style', `color: ${fontColor}; font-size: ${fontSize1}`);
+            source.innerText = `Source: ${sourceText.toString()}`;
+            appendInfo.append(source);
+
+            count = count + 1;
+            // END Create video-results
+        } 
+    })
+}
+// -- END resultMenu EventListener Fetch and display
