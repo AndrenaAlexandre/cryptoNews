@@ -1,0 +1,24 @@
+.aboutBg{
+    background-color: white;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.aboutFont{
+    color: rgb(2, 2, 2);
+}
+
+.about{
+    text-align: justify;
+    margin-right: 10%;
+    margin-left: 10%;
+    font-size: 25px;
+}
+
+.imgBox{
+    justify-content: top;
+    align-items: center;
+    padding-left:10%;
+}
+

@@ -35,7 +35,9 @@
 
 * MVP
     * description of base MVP
+    
     * screenshots of Wire frame
+    
 
 * Stretch Goals (Completed)
 
