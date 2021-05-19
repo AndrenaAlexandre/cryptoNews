@@ -53,8 +53,8 @@
     flex-wrap: auto;
     width:50%;
     text-align: center;
-    text-shadow: 1px 1px rgba(240, 240, 240, 0.541);
-}
+    text-shadow: 1px 1px #ffc8009f;
+
 
 .videoBox iframe{
     margin-left: 1%;
